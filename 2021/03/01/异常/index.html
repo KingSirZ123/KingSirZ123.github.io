@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="异常                           1. 什么是异常        实际工作中，遇到的情况不可能是非常完美的。比如:你写的某个模块，用户输入不一定符合你的要求、你的程序要打开某个文件，这个文件可能不存在或者文件格式不对，你要读取数据库的数据，数据可能是空的等。我们的程序在跑着，内存或硬盘可能满了等等。 软件程序在运行过程中，非常可能遇到刚刚提到的这些异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异常">
+<meta property="og:url" content="https://kingsirz123.github.io/2021/03/01/%E5%BC%82%E5%B8%B8/index.html">
+<meta property="og:site_name" content="源一先生">
+<meta property="og:description" content="异常                           1. 什么是异常        实际工作中，遇到的情况不可能是非常完美的。比如:你写的某个模块，用户输入不一定符合你的要求、你的程序要打开某个文件，这个文件可能不存在或者文件格式不对，你要读取数据库的数据，数据可能是空的等。我们的程序在跑着，内存或硬盘可能满了等等。 软件程序在运行过程中，非常可能遇到刚刚提到的这些异常">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/01/%E5%BC%82%E5%B8%B8/1.jpg">
+<meta property="article:published_time" content="2021-03-01T04:00:29.230Z">
+<meta property="article:modified_time" content="2021-03-01T04:14:44.174Z">
+<meta property="article:author" content="源一">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kingsirz123.github.io/2021/03/01/%E5%BC%82%E5%B8%B8/1.jpg"><title>异常 | 源一先生</title><link ref="canonical" href="https://kingsirz123.github.io/2021/03/01/%E5%BC%82%E5%B8%B8/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">源一先生</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">异常</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-03-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-03-01</span></span></div></header><div class="post-body">
+        <h1 id="异常"   >
+          <a href="#异常" class="heading-link"><i class="fas fa-link"></i></a>异常</h1>
+      
+        <h2 id="1-什么是异常"   >
+          <a href="#1-什么是异常" class="heading-link"><i class="fas fa-link"></i></a>1. 什么是异常</h2>
+      <ul>
+<li>实际工作中，遇到的情况不可能是非常完美的。比如:你写的某个模块，用户输入不一定符合你的要求、你的程序要打开某个文件，这个文件可能不存在或者文件格式不对，你要读取数据库的数据，数据可能是空的等。我们的程序在跑着，内存或硬盘可能满了等等。</li>
+<li>软件程序在运行过程中，非常可能遇到刚刚提到的这些异常问题，我们叫异常，英文是:<strong>Exception</strong>，意思是例外。这些，例外情况，或者叫异常，怎么让我们写的程序做出合理的处理。而不至于程序崩溃。<a id="more"></a></li>
+<li>异常指程序运行中出现的不期而至的各种状况,如:<strong>文件找不到、网络连接失败、非法参数</strong>等。</li>
+<li>异常发生在程序运行期间,它影响了正常的程序执行流程。</li>
+</ul>
+
+        <h2 id="2-异常的简单分类："   >
+          <a href="#2-异常的简单分类：" class="heading-link"><i class="fas fa-link"></i></a>2. 异常的简单分类：</h2>
+      <ul>
+<li><p><strong>检查性异常</strong>:最具代表的检查性异常是<strong>用户错误或问题引起</strong>的异常，这是程序员无法预见的。例如要打开一个不存在文件时，一个异常就发生了，这些异常在编译时不能被简单地忽略。</p>
+</li>
+<li><p><strong>运行时异常</strong>:运行时异常是可能被程序员避免的异常。与检查性异常相反，运行时异常可以在编译时被忽略。</p>
+<hr>
+<p> <strong>错误(ERROR):错误不是异常</strong>，而是脱离程序员控制的问题。错误在代码中通常被忽略。例如，当栈溢出时，一个错误就发生了，它们在编译也检查不到的。</p>
+</li>
+</ul>
+
+        <h2 id="3-异常的体系结构"   >
+          <a href="#3-异常的体系结构" class="heading-link"><i class="fas fa-link"></i></a>3. 异常的体系结构</h2>
+      <ul>
+<li>Java把异常当做对象来处理，并且定义了一个基类<strong><code>Java.lang.Throwable</code></strong>作为所有异常类的的超类。</li>
+<li>在Java API中已经定义了许多的异常类，这些异常类分为两大类，<strong>错误和(Error)r和异常(Exception)</strong></li>
+</ul>
+<img src="/2021/03/01/%E5%BC%82%E5%B8%B8/1.jpg" class="" title="异常体系结构">
+
+<ul>
+<li>
+        <h3 id="错误-Error"   >
+          <a href="#错误-Error" class="heading-link"><i class="fas fa-link"></i></a>错误(Error)</h3>
+      <ul>
+<li>Error类对象由<strong>Java 虚拟机</strong>生成并抛出，大多数错误与代码编写者所执行的操作无关。</li>
+<li>Java虚拟机运行错误(<code>Virtual MachineError</code>)，当JVM不再有继续执行操作所需的内存资源时，将出现 <code>OutOfMemoryError</code>。这些异常发生时，Java虚拟机(JVM)</li>
+<li>还有发生在虚拟机试图执行应用时，如<strong>类定义错误(<code>NoClassDefFoundErro</code>r)</strong>、<strong>链接错误(<code>LinkageError</code></strong>)。这些错误是不可查的，因为它们在应用程序的控制和处理能力之外，而且绝大多数是程序运行时不允许出现的状况。</li>
+</ul>
+</li>
+<li>
+        <h3 id="异常-Exception"   >
+          <a href="#异常-Exception" class="heading-link"><i class="fas fa-link"></i></a>异常(Exception)</h3>
+      <ul>
+<li><p><strong><code>IOException</code></strong>是一些文件操作等会出现的异常。</p>
+</li>
+<li><p>在Exception分支中有一个重要的子类<strong><code>RuntimeException</code></strong>(运行时异常)，经常出现的一些错误就是属于他的错误，例如下面这些异常：</p>
+<ol>
+<li><p><strong><code>ArraylndexOutOfBoundsException</code></strong>(数组下标越界)</p>
+</li>
+<li><p><strong><code>NullPointerException</code></strong>(空指针异常)</p>
+</li>
+<li><p><strong><code>ArithmeticException</code></strong>(算术异常)</p>
+</li>
+<li><p><strong><code>MissingResourceException</code>(</strong>丢失资源)</p>
+</li>
+<li><p><strong><code>ClassNotFoundException</code></strong>(找不到类）等异常。</p>
+<p>这些异常是不检查异常,程序中可以选择捕获处理，也可以不处理。这些异常一般是由程序逻辑错误引起的，程序应该从逻辑角度尽可能避免这类异常的发生。</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Error和Exception的区别:</p>
+<p><strong>Error通常是灾难性的致命的错误，是程序无法控制和处理的</strong>，当出现这些异常时，Java虚拟机(JVM)一般会选择终止线程;Exception通常情况下是可以被程序处理的，并且在程序中应该尽可能的去处理这些异常。</p>
+</li>
+</ul>
+
+        <h2 id="4-异常处理机制（crtl-alt-t）"   >
+          <a href="#4-异常处理机制（crtl-alt-t）" class="heading-link"><i class="fas fa-link"></i></a>4. 异常处理机制（crtl+alt+t）</h2>
+      <ul>
+<li>异常处理的五个关键字：<ol>
+<li><strong><code>try</code></strong>:用于<strong>包裹可能出现的异常的代码块</strong>。</li>
+<li><strong><code>catch</code></strong>：用于<strong>捕获异常</strong>，并且写补货到异常是要执行的操作。（<strong>多个catch从小写到大</strong>）</li>
+<li><strong><code>finally</code></strong>：无论是否捕获处理了异常<strong>都需要执行的代码块</strong>。</li>
+<li><strong><code>throw</code></strong>：<strong>手动抛出异常</strong>。(一般在方法中使用)</li>
+<li><strong><code>throws</code></strong>：<strong>声明方法可能抛出的异常</strong>。（方法上使用）</li>
+</ol>
+</li>
+</ul>
+
+        <h2 id="5-自定义异常"   >
+          <a href="#5-自定义异常" class="heading-link"><i class="fas fa-link"></i></a>5.自定义异常</h2>
+      <ul>
+<li>使用Java内置的异常类可以描述在编程时出现的大部分异常情况。除此之外，用户还可以自定义异常。<strong>用户自定义异常类，只需继承Exception类即可。</strong></li>
+<li>在程序中使用自定义异常类，大体可分为以下几个步骤:<ol>
+<li>创建自定义异常类。</li>
+<li>在方法中通过throw关键字抛出异常对象</li>
+<li>如果在当前抛出异常的方法中处理异常，可以使用<strong>try-catch语句捕获</strong>并处理;否则在<strong>方法的声明处通过<code>throws</code>关键字指明要抛出给方法调用者的异常</strong>，继续进行下一步操作。</li>
+<li>在出现异常方法的调用者中捕获并处理异常。</li>
+</ol>
+</li>
+</ul>
+
+        <h2 id="6-异常在实际应用中的经验总结"   >
+          <a href="#6-异常在实际应用中的经验总结" class="heading-link"><i class="fas fa-link"></i></a>6. 异常在实际应用中的经验总结</h2>
+      <ol>
+<li>处理运行时异常时，采用逻辑去合理规避同时辅助try-catch处理。</li>
+<li>在多重catch块后面，可以加一个<code>catch (Exception)</code>来处理可能会被遗漏的异常。</li>
+<li>对于不确定的代码，也可以加上try-catch，处理潜在的异常。</li>
+<li><strong>尽量去处理异常</strong>，切忌只是简单地调用<code>printStackTrace()</code>去打印输出。</li>
+<li>具体如何处理异常，要根据不同的业务需求和异常类型去决定。</li>
+<li>尽量添加<code>finally</code><strong>语句块去释放占用的资源</strong></li>
+</ol>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://kingsirz123.github.io">源一</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://kingsirz123.github.io/2021/03/01/%E5%BC%82%E5%B8%B8/">https://kingsirz123.github.io/2021/03/01/%E5%BC%82%E5%B8%B8/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2021/03/01/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Java常用类</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2021/02/21/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"><span class="paginator-prev__text">面向对象编程</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#异常"><span class="toc-number">1.</span> <span class="toc-text">
+          异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是异常"><span class="toc-number">1.1.</span> <span class="toc-text">
+          1. 什么是异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-异常的简单分类："><span class="toc-number">1.2.</span> <span class="toc-text">
+          2. 异常的简单分类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-异常的体系结构"><span class="toc-number">1.3.</span> <span class="toc-text">
+          3. 异常的体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误-Error"><span class="toc-number">1.3.1.</span> <span class="toc-text">
+          错误(Error)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常-Exception"><span class="toc-number">1.3.2.</span> <span class="toc-text">
+          异常(Exception)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-异常处理机制（crtl-alt-t）"><span class="toc-number">1.4.</span> <span class="toc-text">
+          4. 异常处理机制（crtl+alt+t）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-自定义异常"><span class="toc-number">1.5.</span> <span class="toc-text">
+          5.自定义异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-异常在实际应用中的经验总结"><span class="toc-number">1.6.</span> <span class="toc-text">
+          6. 异常在实际应用中的经验总结</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/3.jpeg" alt="avatar"></div><p class="sidebar-ov-author__text">一生中你唯一需要回头的时候，是为了看自己到底走了多远。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/KingSirZ123/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://plus.google.com/" target="_blank" rel="noopener" data-popover="Google" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-google"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://youtube.com/" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">12</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020.7.19~2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>你好世界</span></div><div><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="Java集合        参考文章   Java 集合就像一种容器，可以动态地把多个对象的引用放入容器中。  Java 集合类可以用于存储数量不等的多个对象，还可用于保存具有映射关系的关联数组。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java集合">
+<meta property="og:url" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="源一先生">
+<meta property="og:description" content="Java集合        参考文章   Java 集合就像一种容器，可以动态地把多个对象的引用放入容器中。  Java 集合类可以用于存储数量不等的多个对象，还可用于保存具有映射关系的关联数组。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/1.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/3.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/4.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/5.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/6.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/7.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/8.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/2.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/9.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/10.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/11.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/12.png">
+<meta property="article:published_time" content="2021-03-04T08:26:55.912Z">
+<meta property="article:modified_time" content="2021-03-04T08:28:55.067Z">
+<meta property="article:author" content="源一">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/1.png"><title>Java集合 | 源一先生</title><link ref="canonical" href="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">源一先生</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Java集合</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-03-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-03-04</span></span></div></header><div class="post-body">
+        <h1 id="Java集合"   >
+          <a href="#Java集合" class="heading-link"><i class="fas fa-link"></i></a>Java集合</h1>
+      <blockquote>
+<p><span class="exturl"><a class="exturl__link"   href="https://www.kuangstudy.com/bbs/1356946211193561090"  target="_blank" rel="noopener">参考文章</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</blockquote>
+<ul>
+<li><p>Java 集合就像一种容器，可以<strong>动态</strong>地把<strong>多个对象</strong>的引用放入容器中。</p>
+</li>
+<li><p>Java 集合类可以用于<strong>存储数量不等的多个对象</strong>，还可用于<strong>保存具有映射关系的关联数组</strong>。</p>
+</li>
+</ul>
+<a id="more"></a>  
+
+
+        <h2 id="Java-集合可分为-Collection-和-Map-两种："   >
+          <a href="#Java-集合可分为-Collection-和-Map-两种：" class="heading-link"><i class="fas fa-link"></i></a>Java 集合可分为 Collection 和 Map 两种：</h2>
+      <ul>
+<li><em>Collection接口</em>：<strong>单列数据</strong>，定义了<strong>存取一组对象</strong>的方法的集合。<ul>
+<li>List：元素<strong>有序、可重复</strong>的集合。</li>
+<li>Set：元素<strong>无序、不可重复</strong>的集合。</li>
+</ul>
+</li>
+<li><em>Map接口</em>：<strong>双列数据</strong>，保存具有映射关系“<strong>key-value对</strong>”的集合。</li>
+</ul>
+
+        <h2 id="Colletion接口继承树"   >
+          <a href="#Colletion接口继承树" class="heading-link"><i class="fas fa-link"></i></a>Colletion接口继承树</h2>
+      <img src="/2021/03/04/Java%E9%9B%86%E5%90%88/1.png" class="" title="图片">
+
+
+
+
+        <h3 id="Colletion接口方法"   >
+          <a href="#Colletion接口方法" class="heading-link"><i class="fas fa-link"></i></a>Colletion接口方法</h3>
+      <p>Collection 接口是 <strong>List、Set 和 Queue</strong> 接口的父接口，该接口里定义的方法既<strong>可用于操作 Set 集合，也可用于操作 List 和 Queue 集合</strong>。（JDK不提供此接口的任何直接实现，而是提供更具体的子接口(如：Set和List)实现。）</p>
+<p>在 Java5 之前，Java 集合会丢失容器中所有对象的数据类型，把所有对象都当成 Object 类型处理；从 JDK 5.0 增加了泛型以后，Java 集合可以记住容器中对象的数据类型。</p>
+<ol>
+<li><p>添加：</p>
+<ul>
+<li><code>add(Object obj)</code></li>
+<li><code>addAll(Collection coll)</code></li>
+</ul>
+</li>
+<li><p>获取有效元素的个数</p>
+<ul>
+<li><code>int size()</code></li>
+</ul>
+</li>
+<li><p>清空集合</p>
+<ul>
+<li><code>void clear()</code></li>
+</ul>
+</li>
+<li><p>是否是空集合</p>
+<ul>
+<li><code>boolean isEmpty()</code></li>
+</ul>
+</li>
+<li><p>是否包含某个元素</p>
+<ul>
+<li><code>boolean contains(Object obj)</code>：是通过元素的equals方法来判断是否是同一个对象</li>
+<li><code>boolean containsAll(Collection c)</code>：也是调用元素的equals方法来比较的。拿两个集合的元素挨个比较。</li>
+</ul>
+</li>
+<li><p>删除</p>
+<ul>
+<li><code>boolean remove(Object obj)</code> ：通过元素的equals方法判断是否是要删除的那个元素。只会删除找到的第一个元素。</li>
+<li><code>boolean removeAll(Collection coll)</code>：取当前集合的差集</li>
+</ul>
+</li>
+<li><p>取两个集合的交集</p>
+<ul>
+<li><code>boolean retainAll(Collection c)</code>：把交集的结果存在当前集合中，不影响c。</li>
+</ul>
+</li>
+<li><p>集合是否相等</p>
+<ul>
+<li><code>boolean equals(Object obj)</code></li>
+</ul>
+</li>
+<li><p>集合转成对象数组</p>
+<ul>
+<li><p><code>Object[] toArray()</code></p>
+</li>
+<li><p>数组转成集合：<code>Arrays.asList()</code>方法；</p>
+<ul>
+<li><p>例如：</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = Arrays.asList(<span class="keyword">new</span> String&#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>&#125;);</span><br></pre></td></tr></table></div></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取集合对象的哈希值</p>
+<ul>
+<li><code>hashCode()</code></li>
+</ul>
+</li>
+<li><p>遍历</p>
+<ul>
+<li><code>iterator()</code>：返回迭代器对象，用于集合遍历</li>
+</ul>
+</li>
+</ol>
+
+        <h2 id="Iterator迭代器接口"   >
+          <a href="#Iterator迭代器接口" class="heading-link"><i class="fas fa-link"></i></a>Iterator迭代器接口</h2>
+      <p>Iterator对象称为<strong>迭代器</strong>(设计模式的一种)，主要<strong>用于遍历 Collection 集合中的元素</strong>。</p>
+<p>GOF给迭代器模式的定义为：提供一种方法访问一个容器(container)对象中各个元素，而又不需暴露该对象的内部细节。迭代器模式，就是为容器而生。</p>
+<p>Collection接口继承了java.lang.Iterable接口，该接口有一个iterator()方法，那么所有实现了Collection接口的集合类都有一个iterator()方法，用以返回一个实现了Iterator接口的对象。</p>
+<p><strong>Iterator 仅用于遍历集合，Iterator 本身并不提供承装对象的能力。如果需要创建Iterator 对象，则必须有一个被迭代的集合。</strong></p>
+<p><strong>集合对象每次调用iterator()方法都得到一个全新的迭代器对象</strong>，默认游标都在集合的第一个元素之前。</p>
+
+        <h3 id="Iterator接口的方法"   >
+          <a href="#Iterator接口的方法" class="heading-link"><i class="fas fa-link"></i></a>Iterator接口的方法</h3>
+      <ul>
+<li><code>hasNext()</code>：如果<strong>仍有元素可以迭代</strong>，则返回 true（换句话说，如果 next <strong>返回了元素而不是抛出异常</strong>，则返回 true）。</li>
+<li><code>next()</code>：<strong>返回迭代的下一个元素</strong>。</li>
+<li><code>remove()</code>：从迭代器指向的 collection 中<strong>移除</strong>迭代器<strong>返回的最后一个元素</strong>（可选操作）。每次调用 <strong>next 只能调用一次</strong>此方法。如果进行迭代时用调用此方法之外的其他方式修改了该迭代器所指向的 collection，则迭代器的行为是不确定的。</li>
+</ul>
+<p><strong>在调用it.next()方法之前必须要调用it.hasNext()进行检测。若不调用，且下一条记录无效，直接调用it.next()会抛出NoSuchElementException异常。</strong></p>
+
+        <h3 id="执行原理"   >
+          <a href="#执行原理" class="heading-link"><i class="fas fa-link"></i></a>执行原理</h3>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Iterator iterator = coll.iterator();</span><br><span class="line"><span class="comment">//hasNext():判断是否还有下一个元素</span></span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">    <span class="comment">//next():①指针下移 ②将下移以后集合位置上的元素返回</span></span><br><span class="line">    System.out.println(iterator.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/3.png" class="" title="图片">
+
+
+
+<p><strong>Iterator接口remove()方法:</strong></p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Iterator iter = coll.iterator();</span><br><span class="line"><span class="keyword">while</span>(iter.hasNext())&#123;</span><br><span class="line">    Object obj = iter.next();</span><br><span class="line">    <span class="keyword">if</span>(obj.equals(<span class="string">"Tom"</span>))&#123;</span><br><span class="line">        iter.remove();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+
+<p>注意：</p>
+<ul>
+<li>Iterator可以删除集合的元素，但是是<strong>遍历过程中通过迭代器对象的remove()方法</strong>，不是集合对象的remove()方法。</li>
+<li>如果还未调用next()或在上一次调用 next 方法之后已经调用了 remove 方法，再调用remove都会报illegalStateException。</li>
+</ul>
+
+        <h3 id="使用-foreach-循环遍历集合元素"   >
+          <a href="#使用-foreach-循环遍历集合元素" class="heading-link"><i class="fas fa-link"></i></a>使用 foreach 循环遍历集合元素</h3>
+      <ul>
+<li>Java 5.0 提供了 foreach 循环迭代访问 Collection和数组。</li>
+<li>遍历操作不需获取Collection或数组的长度，无需使用索引访问元素。</li>
+<li>遍历集合的底层调用Iterator完成操作。</li>
+<li>foreach还可以用来遍历数组。</li>
+</ul>
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/4.png" class="" title="图片">
+
+
+
+
+        <h2 id="collection子接口：List接口"   >
+          <a href="#collection子接口：List接口" class="heading-link"><i class="fas fa-link"></i></a>collection子接口：List接口</h2>
+      <p>List接口框架：</p>
+<p>|——Collection接口：单列集合，用来存储一个一个的对象</p>
+<p> |——List接口：存储有序的、可重复的数据。 —&gt;“动态”数组,替换原有的数组</p>
+<p> |——ArrayList：作为List接口的主要实现类；线程不安全的，效率高；底层使用Object[] elementData存储</p>
+<p> |——LinkedList：对于频繁的插入、删除操作，使用此类效率比ArrayList高；底层使用双向链表存储</p>
+<p> |——Vector：作为List接口的古老实现类；线程安全的，效率低；底层使用Object[] elementData存储</p>
+<ul>
+<li>鉴于Java中数组用来存储数据的局限性，我们通常使用List替代数组。</li>
+<li>List集合类中<strong>元素有序、且可重复</strong>，集合中的每个元素都有其对应的顺序索引。</li>
+<li>List容器中的元素都对应一个整数型的序号记载其在容器中的位置，可以根据 序号存取容器中的元素。</li>
+<li>JDK API中List接口的实现类常用的有：ArrayList、LinkedList和Vector。</li>
+</ul>
+
+        <h3 id="List接口常用方法："   >
+          <a href="#List接口常用方法：" class="heading-link"><i class="fas fa-link"></i></a>List接口常用方法：</h3>
+      <p>增：</p>
+<ul>
+<li>void add(int index, Object obj)：在index位置插入obj元素。</li>
+<li>boolean addAll(int index, Collection c)：从index位置开始将c中 的所有元素添加进来。</li>
+</ul>
+<p>查：</p>
+<ul>
+<li>Object get(int index)：获取指定index位置的元素。</li>
+<li>int indexOf(Object obj)：返回obj在集合中首次出现的位置。</li>
+<li>int lastIndexOf(Object obj)：返回obj在当前集合中末次出现的位置。</li>
+<li>List subList(int start, int end)：返回从start到end位置的子集合。</li>
+</ul>
+<p>删：</p>
+<ul>
+<li>Object remove(int index)：移除指定index位置的元素，并返回此元素。</li>
+</ul>
+<p>改：</p>
+<ul>
+<li>Object set(int index, Object obj)：设置指定index位置的元素为obj。</li>
+</ul>
+
+        <h3 id="List实现类之一：ArrayList"   >
+          <a href="#List实现类之一：ArrayList" class="heading-link"><i class="fas fa-link"></i></a>List实现类之一：ArrayList</h3>
+      <ul>
+<li>ArrayList 是 List 接口的典型实现类、主要实现类。</li>
+<li>本质上，ArrayList是对象引用的一个”变长”数组。</li>
+<li>ArrayList的JDK1.8之前与之后的实现区别？<ul>
+<li>JDK1.7：ArrayList像饿汉式，直接创建一个初始容量为10的数组。</li>
+<li>JDK1.8：ArrayList像懒汉式，一开始创建一个长度为0的数组，当添加第一个元 素时再创建一个始容量为10的数组。</li>
+</ul>
+</li>
+<li>Arrays.asList(…) 方法返回的 List 集合，既不是 ArrayList 实例，也不是 Vector 实例。 Arrays.asList(…) 返回值是一个固定长度的 List 集合。</li>
+</ul>
+<p>构造方法：</p>
+<ul>
+<li>ArraysList()：构造一个初始容量为10的空列表。</li>
+<li>ArraysList(Collection coll)：构造一个由类coll中的元素初始化的数组列表。</li>
+<li>ArraysList(int Capacity)：构造一个初始容量为capacity的数组列表。</li>
+</ul>
+
+        <h3 id="List实现类之二：LinkedList"   >
+          <a href="#List实现类之二：LinkedList" class="heading-link"><i class="fas fa-link"></i></a>List实现类之二：LinkedList</h3>
+      <ul>
+<li>对于频繁的插入或删除元素的操作，建议使用LinkedList类，效率较高。</li>
+<li>LinkedList：双向链表，内部没有声明数组，而是定义了Node类型的first和last， 用于记录首末元素。同时，定义内部类Node，作为LinkedList中保存数据的基 本结构。Node除了保存数据，还定义了两个变量：<ul>
+<li>prev变量记录前一个元素的位置。</li>
+<li>next变量记录下一个元素的位置</li>
+</ul>
+</li>
+</ul>
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/5.png" class="" title="图片">
+
+<ul>
+<li>新增方法：<ul>
+<li>void addFirst(Object obj)：在列表头增加元素。</li>
+<li>void addLast(Object obj)：在列表尾部增加元素。</li>
+<li>Object getFirst()：获得第一个元素。</li>
+<li>Object getLast()：获得最后一个元素。</li>
+<li>Object removeFirst()：删除第一个元素。</li>
+<li>Object removeLast()：删除最后一个元素。</li>
+</ul>
+</li>
+</ul>
+<p>构造方法：</p>
+<ul>
+<li>LInkedList()：构造一个空的链接列表。</li>
+<li>LinkedList(Collection c)：构造一个由类c中的元素初始化的链接列表。</li>
+</ul>
+
+        <h3 id="List-实现类之三：Vector"   >
+          <a href="#List-实现类之三：Vector" class="heading-link"><i class="fas fa-link"></i></a>List 实现类之三：Vector</h3>
+      <ul>
+<li><p>Vector 是一个古老的集合，JDK1.0就有了。Vector实现动态数组，与ArrayList相似，但不同的是，Vector是同步的，所以Vector是线程安全的，并且它包含了许多不属于类集框架的从以前版本遗留下来的方法。随着java2的发布，Vector被重新设计来扩展AbstractList和实现List接口，因此现在它与类集是完全不兼容的。</p>
+</li>
+<li><p>在各种list中，最好把ArrayList作为缺省选择。当插入、删除频繁时， 使用LinkedList；Vector总是比ArrayList慢，所以尽量避免使用。</p>
+</li>
+<li><p>除了List定义的类集方法之外，Vector还定义了几个以前版本遗留下来的方法：</p>
+<ul>
+<li>void addElement(Object obj)：添加指定对象到Vector数组。</li>
+<li>void insertElementAt(Object element, int start)：在Vector数组中，在有index指定的位置处加入element。</li>
+<li>int capacity()：返回Vector数组的容量。</li>
+</ul>
+<p>… …</p>
+</li>
+</ul>
+<p><strong>面试题:</strong></p>
+<p>请问ArrayList/LinkedList/Vector的异同？谈谈你的理解？ArrayList底层 是什么？扩容机制？Vector和ArrayList的最大区别?</p>
+<ul>
+<li><p>ArrayList和LinkedList的异同</p>
+<p>二者都线程不安全，相对线程安全的Vector，执行效率高。此外，ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。对于 随机访问get和set，ArrayList优于LinkedList，因为LinkedList要移动指针。对于新增 和删除操作add(特指插入)和remove，LinkedList比较占优势，因为ArrayList要移动数据。</p>
+</li>
+<li><p>ArrayList和Vector的区别</p>
+<p>Vector和ArrayList几乎是完全相同的,唯一的区别在于Vector是同步类(synchronized)，属于 强同步类。因此开销就比ArrayList要大，访问要慢。正常情况下,大多数的Java程序员使用 ArrayList而不是Vector,因为同步完全可以由程序员自己来控制。Vector每次扩容请求其大 小的2倍空间，而ArrayList是1.5倍。Vector还有一个子类Stack。</p>
+</li>
+</ul>
+
+        <h2 id="collection子接口：Set接口"   >
+          <a href="#collection子接口：Set接口" class="heading-link"><i class="fas fa-link"></i></a>collection子接口：Set接口</h2>
+      <p>Set接口的框架：</p>
+<p>|——Collection接口：单列集合，用来存储一个一个的对象</p>
+<p> |——Set接口：存储无序的、不可重复的数据 —&gt;高中讲的“集合”</p>
+<p> |——HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值</p>
+<p> |——LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历</p>
+<p> 对于频繁的遍历操作，LinkedHashSet效率高于HashSet.</p>
+<p> |——TreeSet：可以按照添加对象的指定属性，进行排序。</p>
+<ul>
+<li>Set接口中没有额外定义新的方法，使用的都是Collection中声明过的方法。</li>
+<li>Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作失败。</li>
+<li>Set 判断两个对象是否相同不是使用 == 运算符，而是根据 equals() 方法。</li>
+</ul>
+
+        <h3 id="Set实现类之一：HashSet"   >
+          <a href="#Set实现类之一：HashSet" class="heading-link"><i class="fas fa-link"></i></a>Set实现类之一：HashSet</h3>
+      <ul>
+<li>HashSet 是 Set 接口的典型实现，大多数时候使用 Set 集合时都使用这个实现类。</li>
+<li>HashSet 按 Hash 算法来存储集合中的元素，因此具有很好的存取、查找、删除 性能。</li>
+<li>HashSet 具有以下特点：<ul>
+<li>不能保证元素的排列顺序。（无序性：不等于随机性。存储的数据在底层数组中并非按照数组索引的顺序添加，而是根据数据的哈希值决定的。）</li>
+<li>不可重复性：保证添加的元素按照equals()判断时，不能返回true.即：相同的元素只能添加一个。</li>
+<li>HashSet 不是线程安全的。</li>
+<li>集合元素可以是 null。</li>
+</ul>
+</li>
+<li>HashSet 集合判断两个元素相等的标准：两个对象通过 hashCode() 方法比较相等，并且两个对象的 equals() 方法返回值也相等。</li>
+<li>对于存放在Set容器中的对象，对应的类一定要重写equals()和hashCode(Object obj)方法，以实现对象相等规则。即：“相等的对象必须具有相等的散列码”。</li>
+</ul>
+<p>构造方法：</p>
+<ul>
+<li>HashSet()：构造一个默认的散列集合。</li>
+<li>HashSet(Collection c)：用c中的元素初始化散列集合。</li>
+<li>HashSet(int capacity)：用capacity初始化散集合的容量。</li>
+<li>HashSet(int capacity, float fillRatio)：用参数初始化散列集合的容量和填充比。填充比必须介于0.0与1.0之间；当元素的个数大于散列集合容量乘以它的填充比是，散列集合将别扩大。对于没有获得填充比的构造方法，默认为0.75。</li>
+</ul>
+<p>向HashSet中添加元素的过程：</p>
+<ul>
+<li>当向 HashSet 集合中存入一个元素时，HashSet 会调用该对象的 hashCode() 方法来得到该对象的 hashCode 值，然后根据 hashCode 值，通过某种散列函数决定该对象 在 HashSet 底层数组中的存储位置。（这个散列函数会与底层数组的长度相计算得到在 数组中的下标，并且这种散列函数计算还尽可能保证能均匀存储元素，越是散列分布， 该散列函数设计的越好）。</li>
+<li>如果两个元素的hashCode()值相等，会再继续调用equals方法，如果equals方法结果 为true，添加失败；如果为false，那么会保存该元素，但是该数组的位置已经有元素了， 那么会通过链表的方式继续链接。</li>
+<li>如果两个元素的 equals() 方法返回 true，但它们的 hashCode() 返回值不相 等，hashSet 将会把它们存储在不同的位置，但依然可以添加成功。</li>
+</ul>
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/6.png" class="" title="图片">
+
+
+        <h3 id="Set实现类之二：LinkedHashSet"   >
+          <a href="#Set实现类之二：LinkedHashSet" class="heading-link"><i class="fas fa-link"></i></a>Set实现类之二：LinkedHashSet</h3>
+      <ul>
+<li>LinkedHashSet 是 HashSet 的子类。</li>
+<li>LinkedHashSet 根据元素的 hashCode 值来决定元素的存储位置， 但它同时使用双向链表维护元素的次序，<strong>这使得元素看起来是以插入 顺序保存的</strong>。</li>
+<li>LinkedHashSet插入性能略低于 HashSet，但在迭代访问（遍历）Set里的全部元素时有很好的性能，效率高于HashSet。</li>
+<li>LinkedHashSet 不允许集合元素重复。</li>
+</ul>
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/7.png" class="" title="图片">
+
+
+        <h3 id="Set实现类之三：SortedSet"   >
+          <a href="#Set实现类之三：SortedSet" class="heading-link"><i class="fas fa-link"></i></a>Set实现类之三：SortedSet</h3>
+      <ul>
+<li>SortedSet接口扩展了Set并声明了按<strong>升序排列</strong>的集合的特性。</li>
+<li>除了那些由Set定义的方法之外，SortedSet接口新增了集中新的方法。当没有项包含在调用集合中时。其中集中方法会引起NoSuchElementException异常。当对象与调用集合中的元素不兼容是，将引发ClassCastException异常。如果试图使用null对象，而集合不允许null时，会引发NullPointerException异常。</li>
+</ul>
+<p>新增方法（了解）：</p>
+<ul>
+<li>Comparator comparator()：返回调用被排序集合的比较方法，如果对该集合使用自然排序，则返回null。</li>
+<li>Object first()：返回调用被排序集合的第一个元素。</li>
+<li>Object last()：返回调用被排序集合的最后一个元素。</li>
+<li>SortedSet headSet(Object end)：返回一个包含那些小于end的元素的SortedSet，那些元素包含在背调排序集合中。返回被排序集合中的元素也被调用被排序集合所引用。</li>
+<li>Object lower(Object e)</li>
+<li>Object higher(Object e)</li>
+<li>SortedSet subSet(fromElement, toElement)</li>
+<li>SortedSet tailSet(fromElement)</li>
+</ul>
+
+        <h3 id="Set实现类之四：TreeSet"   >
+          <a href="#Set实现类之四：TreeSet" class="heading-link"><i class="fas fa-link"></i></a>Set实现类之四：TreeSet</h3>
+      <ul>
+<li><p>TreeSet 是 SortedSet 接口的实现类，TreeSet 可以确保集合元素处于排序状态。</p>
+</li>
+<li><p>TreeSet底层使用红黑树结构存储数据。</p>
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/8.png" class="" title="图片">
+</li>
+<li><p>TreeSet 两种排序方法：自然排序和定制排序。默认情况下，TreeSet 采用自然排序。</p>
+</li>
+<li><p>特点：有序，查询速度比List快。</p>
+</li>
+</ul>
+
+        <h4 id="自然排序"   >
+          <a href="#自然排序" class="heading-link"><i class="fas fa-link"></i></a>自然排序</h4>
+      <p>TreeSet 会调用集合元素的 <code>compareTo(Object obj)</code> 方法来比较元 素之间的大小关系，然后将集合元素按升序(默认情况)排列。如果试图把一个对象添加到 TreeSet 时，则该对象的类必须实现 Comparable 接口。实现 Comparable 的类必须实现 <code>compareTo(Object obj)</code> 方法，两个对象即通过 <code>compareTo(Object obj)</code> 方法的返回值来比较大小。</p>
+<p>向 TreeSet 中添加元素时，只有第一个元素无须比较<code>compareTo()</code>方法，后面添加的所有元素都会调用<code>compareTo()</code>方法进行比较。</p>
+<p><strong>因为只有相同类的两个实例才会比较大小，所以向 TreeSet 中添加的应该是同 一个类的对象。</strong></p>
+<p>对于 TreeSet 集合而言，它判断两个对象是否相等的唯一标准是：两个对象通过<code>compareTo(Object obj)</code>方法比较返回值。</p>
+<p>当需要把一个对象放入 TreeSet 中，重写该对象对应的 equals() 方法时，应保 证该方法与 compareTo(Object obj) 方法有一致的结果：如果两个对象通过 <code>equals()</code>方法比较返回 true，则通过<code>compareTo(Object obj)</code> 方法比较应返回 0。 否则，让人难以理解。</p>
+
+        <h4 id="定制排序"   >
+          <a href="#定制排序" class="heading-link"><i class="fas fa-link"></i></a>定制排序</h4>
+      <p>TreeSet的自然排序要求元素所属的类实现Comparable接口，如果元素所属的类没 有实现Comparable接口，或不希望按照升序(默认情况)的方式排列元素或希望按照 其它属性大小进行排序，则考虑使用定制排序。定制排序，通过Comparator接口来 实现。需要重写compare(T o1,T o2)方法。</p>
+<p>利用<code>int compare(T o1,T o2)</code>方法，比较o1和o2的大小：如果方法返回正整数，则表 示o1大于o2；如果返回0，表示相等；返回负整数，表示o1小于o2。</p>
+<p>要实现定制排序，需要将实现Comparator接口的实例作为形参传递给TreeSet的构造器。</p>
+<p>此时，<strong>仍然只能向TreeSet中添加类型相同的对象</strong>。否则发生ClassCastException异 常。</p>
+<p>使用定制排序判断两个元素相等的标准是：通过Comparator比较两个元素返回了0。</p>
+
+        <h2 id="Map接口继承树"   >
+          <a href="#Map接口继承树" class="heading-link"><i class="fas fa-link"></i></a>Map接口继承树</h2>
+      <img src="/2021/03/04/Java%E9%9B%86%E5%90%88/2.png" class="" title="图片">
+
+
+        <h2 id="Map接口"   >
+          <a href="#Map接口" class="heading-link"><i class="fas fa-link"></i></a>Map接口</h2>
+      <p>Map与Collection并列存在。用于保存具有映射关系的数据:key-value。Map 中的 key 和 value 都可以是任何引用类型的数据。Map 中的 key 用Set来存放，不允许重复，即同一个 Map 对象所对应 的类，须重写hashCode()和equals()方法。Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和 Properties。其中，HashMap是 Map 接口使用频率最高的实现类。</p>
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/9.png" class="" title="图片">
+
+<p>Map接口常用方法：</p>
+<ul>
+<li>添加、删除、修改操作：<ul>
+<li>Object put(Object key,Object value)：将指定key-value添加到(或修改)当前map对象中。</li>
+<li>void putAll(Map m):将m中的所有key-value对存放到当前map中。</li>
+<li>Object remove(Object key)：移除指定key的key-value对，并返回value。</li>
+<li>void clear()：清空当前map中的所有数据。</li>
+</ul>
+</li>
+<li>元素查询的操作：<ul>
+<li>Object get(Object key)：获取指定key对应的value。</li>
+<li>boolean containsKey(Object key)：是否包含指定的key。</li>
+<li>boolean containsValue(Object value)：是否包含指定的value。</li>
+<li>int size()：返回map中key-value对的个数。</li>
+<li>boolean isEmpty()：判断当前map是否为空。</li>
+<li>boolean equals(Object obj)：判断当前map和参数对象obj是否相等。</li>
+</ul>
+</li>
+<li>元视图操作的方法：<ul>
+<li>Set keySet()：返回所有key构成的Set集合。</li>
+<li>Collection values()：返回所有value构成的Collection集合。</li>
+<li>Set entrySet()：返回所有key-value对构成的Set集合。</li>
+</ul>
+</li>
+</ul>
+
+        <h3 id="Map实现类之一：HashMap"   >
+          <a href="#Map实现类之一：HashMap" class="heading-link"><i class="fas fa-link"></i></a>Map实现类之一：HashMap</h3>
+      <p>HashMap是 Map 接口使用频率最高的实现类。允许使用null键和null值，与HashSet一样，不保证映射的顺序。所有的key构成的集合是Set:无序的、不可重复的。所以，key所在的类要重写： equals()和hashCode()。所有的value构成的集合是Collection:无序的、可以重复的。所以，value所在的类 要重写：equals()。</p>
+<p>一个key-value构成一个entry，所有的entry构成的集合是Set:无序的、不可重复的。</p>
+<p>HashMap 判断两个 key 相等的标准是：两个 key 通过 equals() 方法返回 true， hashCode 值也相等。HashMap 判断两个 value相等的标准是：两个 value 通过 equals() 方法返回 true。</p>
+<ul>
+<li>JDK 7及以前版本：HashMap是数组+链表结构(即为链地址法)</li>
+<li>JDK 8版本发布以后：HashMap是数组+链表+红黑树实现。</li>
+</ul>
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/10.png" class="" title="图片">
+
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/11.png" class="" title="图片">
+
+
+        <h4 id="HashMap的存储结构：JDK-1-8之前"   >
+          <a href="#HashMap的存储结构：JDK-1-8之前" class="heading-link"><i class="fas fa-link"></i></a>HashMap的存储结构：JDK 1.8之前</h4>
+      <p>HashMap的内部存储结构其实是<strong>数组和链表</strong>的结合。当实例化一个HashMap时， 系统会创建一个长度为Capacity的Entry数组，这个长度在哈希表中被称为容量 (Capacity)，在这个数组中可以存放元素的位置我们称之为“桶”(bucket)，每个 bucket都有自己的索引，系统可以根据索引快速的查找bucket中的元素。</p>
+<p>每个bucket中存储一个元素，即一个Entry对象，但每一个Entry对象可以带一个引 用变量，用于指向下一个元素，因此，在一个桶中，就有可能生成一个Entry链。 而且新添加的元素作为链表的head。</p>
+<p>添加元素的过程：向HashMap中添加entry1(key，value)，需要首先计算entry1中key的哈希值(根据 key所在类的hashCode()计算得到)，此哈希值经过处理以后，得到在底层Entry[]数 组中要存储的位置i。如果位置i上没有元素，则entry1直接添加成功。如果位置i上 已经存在entry2(或还有链表存在的entry3，entry(4)，则需要通过循环的方法，依次 比较entry1中key和其他的entry。如果彼此hash值不同，则直接添加成功。如果 hash值不同，继续比较二者是否equals。如果返回值为true，则使用entry1的value 去替换equals为true的entry的value。如果遍历一遍以后，发现所有的equals返回都 为false,则entry1仍可添加成功。entry1指向原有的entry元素。</p>
+<p>HashMap的扩容：当HashMap中的元素越来越多的时候，hash冲突的几率也就越来越高，因为数组的 长度是固定的。所以为了提高查询的效率，就要对HashMap的数组进行扩容，而在 HashMap数组扩容之后，最消耗性能的点就出现了：原数组中的数据必须重新计算 其在新数组中的位置，并放进去，这就是resize。当HashMap中的元素个数超过数组大小(数组总大小length,不是数组中个数 size)<em>loadFactor 时 ， 就 会 进 行 数 组 扩 容 ， loadFactor 的默认 值 (DEFAULT_LOAD_FACTOR)为0.75，这是一个折中的取值。也就是说，默认情况 下，数组大小(DEFAULT_INITIAL_CAPACITY)为16，那么当HashMap中元素个数 超过16</em>0.75=12（这个值就是代码中的threshold值，也叫做临界值）的时候，就把 数组的大小扩展为 2*16=32，即扩大一倍，然后重新计算每个元素在数组中的位置， 而这是一个非常消耗性能的操作，所以如果我们已经预知HashMap中元素的个数， 那么预设元素的个数能够有效的提高HashMap的性能。</p>
+
+        <h4 id="HashMap的存储结构：JDK-1-8"   >
+          <a href="#HashMap的存储结构：JDK-1-8" class="heading-link"><i class="fas fa-link"></i></a>HashMap的存储结构：JDK 1.8</h4>
+      <p>HashMap的内部存储结构其实是<strong>数组+链表+树</strong>的结合。当实例化一个 HashMap时，会初始化initialCapacity和loadFactor，在put第一对映射关系 时，系统会创建一个长度为initialCapacity的Node数组，这个长度在哈希表 中被称为容量(Capacity)，在这个数组中可以存放元素的位置我们称之为 “桶”(bucket)，每个bucket都有自己的索引，系统可以根据索引快速的查 找bucket中的元素。</p>
+<p>每个bucket中存储一个元素，即一个Node对象，但每一个Node对象可以带 一个引用变量next，用于指向下一个元素，因此，在一个桶中，就有可能 生成一个Node链。也可能是一个一个TreeNode对象，每一个TreeNode对象 可以有两个叶子结点left和right，因此，在一个桶中，就有可能生成一个 TreeNode树。而新添加的元素作为链表的last，或树的叶子结点。</p>
+<p>那么HashMap什么时候进行扩容和树形化呢？</p>
+<p>当HashMap中的元素个数超过数组大小(数组总大小length,不是数组中个数 size)<em>loadFactor 时 ， 就会进行数组扩容 ， loadFactor 的默认 值 (DEFAULT_LOAD_FACTOR)为0.75，这是一个折中的取值。也就是说，默认 情况下，数组大小(DEFAULT_INITIAL_CAPACITY)为16，那么当HashMap中 元素个数超过16</em>0.75=12（这个值就是代码中的threshold值，也叫做临界值） 的时候，就把数组的大小扩展为 2*16=32，即扩大一倍，然后重新计算每个元 素在数组中的位置，而这是一个非常消耗性能的操作，所以如果我们已经预知 HashMap中元素的个数，那么预设元素的个数能够有效的提高HashMap的性能。</p>
+<p>当HashMap中的其中一个链的对象个数如果达到了8个，此时如果capacity没有 达到64，那么HashMap会先扩容解决，如果已经达到了64，那么这个链会变成 树，结点类型由Node变成TreeNode类型。当然，如果当映射关系被移除后， 下次resize方法时判断树的结点个数低于6个，也会把树再转为链表。</p>
+<p>关于映射关系的key是否可以修改？answer：不要修改</p>
+<p>映射关系存储到HashMap中会存储key的hash值，这样就不用在每次查找时重新计算 每一个Entry或Node（TreeNode）的hash值了，因此如果已经put到Map中的映射关 系，再修改key的属性，而这个属性又参与hashcode值的计算，那么会导致匹配不上。</p>
+<p>总结：JDK1.8相较于之前的变化：</p>
+<ol>
+<li>HashMap map = new HashMap();//默认情况下，先不创建长度为16的数组。</li>
+<li>当首次调用map.put()时，再创建长度为16的数组。</li>
+<li>.数组为Node类型，在jdk7中称为Entry类型。</li>
+<li>形成链表结构时，新添加的key-value对在链表的尾部（七上八下）。</li>
+<li>当数组指定索引位置的链表长度&gt;8时，且map中的数组的长度&gt; 64时，此索引位置 上的所有key-value对使用红黑树进行存储。</li>
+</ol>
+
+        <h3 id="Map实现类之二：LinkedHashMap"   >
+          <a href="#Map实现类之二：LinkedHashMap" class="heading-link"><i class="fas fa-link"></i></a>Map实现类之二：LinkedHashMap</h3>
+      <p>LinkedHashMap 是 HashMap 的子类。在HashMap存储结构的基础上，使用了一对双向链表来记录添加 元素的顺序。与LinkedHashSet类似，LinkedHashMap 可以维护 Map 的迭代 顺序：迭代顺序与 Key-Value 对的插入顺序一致。</p>
+
+        <h3 id="Map实现类之三：TreeMap"   >
+          <a href="#Map实现类之三：TreeMap" class="heading-link"><i class="fas fa-link"></i></a>Map实现类之三：TreeMap</h3>
+      <p>TreeMap存储 Key-Value 对时，需要根据 key-value 对进行排序。TreeMap 可以保证所有的 Key-Value 对处于有序状态。TreeSet底层使用红黑树结构存储数据。</p>
+<p>TreeMap 的 Key 的排序：</p>
+<ul>
+<li>自然排序：TreeMap 的所有的 Key 必须实现 Comparable 接口，而且所有 的 Key 应该是同一个类的对象，否则将会抛出 ClasssCastException。</li>
+<li>定制排序：创建 TreeMap 时，传入一个 Comparator 对象，该对象负责对 TreeMap 中的所有 key 进行排序。此时不需要 Map 的 Key 实现 Comparable 接口</li>
+</ul>
+<p>TreeMap判断两个key相等的标准：两个key通过compareTo()方法或者compare()方法返回0。</p>
+
+        <h3 id="Map实现类之四：Hashtable"   >
+          <a href="#Map实现类之四：Hashtable" class="heading-link"><i class="fas fa-link"></i></a>Map实现类之四：Hashtable</h3>
+      <p>Hashtable是个古老的 Map 实现类，JDK1.0就提供了。不同于HashMap， Hashtable是线程安全的。Hashtable实现原理和HashMap相同，功能相同。底层都使用哈希表结构，查询 速度快，很多情况下可以互用。与HashMap不同，Hashtable 不允许使用 null 作为 key 和 value。与HashMap一样，Hashtable 也不能保证其中 Key-Value 对的顺序。 Hashtable判断两个key相等、两个value相等的标准，与HashMap一致。</p>
+
+        <h3 id="Map实现类之五：Properties"   >
+          <a href="#Map实现类之五：Properties" class="heading-link"><i class="fas fa-link"></i></a>Map实现类之五：Properties</h3>
+      <p>Properties 类是 Hashtable 的子类，该对象用于处理属性文件。由于属性文件里的 key、value 都是字符串类型，所以 <strong>Properties 里的 key 和 value 都是字符串类型</strong>。存取数据时，建议使用setProperty(String key,String value)方法和 getProperty(String key)方法。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Properties pros &#x3D; new Properties();pros.load(new FileInputStream(&quot;jdbc.properties&quot;));String user &#x3D; pros.getProperty(&quot;user&quot;);System.out.println(user);</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="Collections工具类"   >
+          <a href="#Collections工具类" class="heading-link"><i class="fas fa-link"></i></a>Collections工具类</h2>
+      <p>Collections 是一个操作 Set、List 和 Map 等集合的工具类。Collections 中提供了一系列静态的方法对集合元素进行排序、查询和修改等操作，还提供了对集合对象设置不可变、对集合对象实现同步控制等方法。</p>
+<p><strong>排序操作：（均为static方法）</strong></p>
+<ul>
+<li>reverse(List)：反转 List 中元素的顺序。</li>
+<li>shuffle(List)：对 List 集合元素进行随机排序。</li>
+<li>sort(List)：根据元素的自然顺序对指定 List 集合元素按升序排序。</li>
+<li>sort(List，Comparator)：根据指定的 Comparator 产生的顺序对 List 集合元素进行排序。</li>
+<li>swap(List，int， int)：将指定 list 集合中的 i 处元素和 j 处元素进行交换。</li>
+</ul>
+<p><strong>查找、替换：</strong></p>
+<ul>
+<li>Object max(Collection)：根据元素的自然顺序，返回给定集合中的最大元素。</li>
+<li>Object max(Collection，Comparator)：根据 Comparator 指定的顺序，返回给定集合中的最大元素。</li>
+<li>Object min(Collection)</li>
+<li>Object min(Collection，Comparator)</li>
+<li>int frequency(Collection，Object)：返回指定集合中指定元素的出现次数。</li>
+<li>void copy(List dest,List src)：将src中的内容复制到dest中。</li>
+<li>boolean replaceAll(List list，Object oldVal，Object newVal)：使用新值替换List 对象的所有旧值。</li>
+</ul>
+<p><strong>同步控制</strong></p>
+<p>Collections 类中提供了多个 synchronizedXxx() 方法，该方法可使将指定集合包装成线程同步的集合，从而可以解决多线程并发访问集合时的线程安全问题。</p>
+<img src="/2021/03/04/Java%E9%9B%86%E5%90%88/12.png" class="" title="图片"></div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://kingsirz123.github.io">源一</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/">https://kingsirz123.github.io/2021/03/04/Java%E9%9B%86%E5%90%88/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2021/03/05/Java%20IO%20%E6%80%BB%E7%BB%93/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Java IO 总结</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2021/03/01/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/"><span class="paginator-prev__text">Java常用类</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java集合"><span class="toc-number">1.</span> <span class="toc-text">
+          Java集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-集合可分为-Collection-和-Map-两种："><span class="toc-number">1.1.</span> <span class="toc-text">
+          Java 集合可分为 Collection 和 Map 两种：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Colletion接口继承树"><span class="toc-number">1.2.</span> <span class="toc-text">
+          Colletion接口继承树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Colletion接口方法"><span class="toc-number">1.2.1.</span> <span class="toc-text">
+          Colletion接口方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Iterator迭代器接口"><span class="toc-number">1.3.</span> <span class="toc-text">
+          Iterator迭代器接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Iterator接口的方法"><span class="toc-number">1.3.1.</span> <span class="toc-text">
+          Iterator接口的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行原理"><span class="toc-number">1.3.2.</span> <span class="toc-text">
+          执行原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-foreach-循环遍历集合元素"><span class="toc-number">1.3.3.</span> <span class="toc-text">
+          使用 foreach 循环遍历集合元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#collection子接口：List接口"><span class="toc-number">1.4.</span> <span class="toc-text">
+          collection子接口：List接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#List接口常用方法："><span class="toc-number">1.4.1.</span> <span class="toc-text">
+          List接口常用方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List实现类之一：ArrayList"><span class="toc-number">1.4.2.</span> <span class="toc-text">
+          List实现类之一：ArrayList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List实现类之二：LinkedList"><span class="toc-number">1.4.3.</span> <span class="toc-text">
+          List实现类之二：LinkedList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List-实现类之三：Vector"><span class="toc-number">1.4.4.</span> <span class="toc-text">
+          List 实现类之三：Vector</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#collection子接口：Set接口"><span class="toc-number">1.5.</span> <span class="toc-text">
+          collection子接口：Set接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Set实现类之一：HashSet"><span class="toc-number">1.5.1.</span> <span class="toc-text">
+          Set实现类之一：HashSet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set实现类之二：LinkedHashSet"><span class="toc-number">1.5.2.</span> <span class="toc-text">
+          Set实现类之二：LinkedHashSet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set实现类之三：SortedSet"><span class="toc-number">1.5.3.</span> <span class="toc-text">
+          Set实现类之三：SortedSet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set实现类之四：TreeSet"><span class="toc-number">1.5.4.</span> <span class="toc-text">
+          Set实现类之四：TreeSet</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自然排序"><span class="toc-number">1.5.4.1.</span> <span class="toc-text">
+          自然排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定制排序"><span class="toc-number">1.5.4.2.</span> <span class="toc-text">
+          定制排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map接口继承树"><span class="toc-number">1.6.</span> <span class="toc-text">
+          Map接口继承树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map接口"><span class="toc-number">1.7.</span> <span class="toc-text">
+          Map接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Map实现类之一：HashMap"><span class="toc-number">1.7.1.</span> <span class="toc-text">
+          Map实现类之一：HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap的存储结构：JDK-1-8之前"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">
+          HashMap的存储结构：JDK 1.8之前</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap的存储结构：JDK-1-8"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">
+          HashMap的存储结构：JDK 1.8</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map实现类之二：LinkedHashMap"><span class="toc-number">1.7.2.</span> <span class="toc-text">
+          Map实现类之二：LinkedHashMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map实现类之三：TreeMap"><span class="toc-number">1.7.3.</span> <span class="toc-text">
+          Map实现类之三：TreeMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map实现类之四：Hashtable"><span class="toc-number">1.7.4.</span> <span class="toc-text">
+          Map实现类之四：Hashtable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map实现类之五：Properties"><span class="toc-number">1.7.5.</span> <span class="toc-text">
+          Map实现类之五：Properties</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collections工具类"><span class="toc-number">1.8.</span> <span class="toc-text">
+          Collections工具类</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/3.jpeg" alt="avatar"></div><p class="sidebar-ov-author__text">一生中你唯一需要回头的时候，是为了看自己到底走了多远。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/KingSirZ123/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://plus.google.com/" target="_blank" rel="noopener" data-popover="Google" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-google"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://youtube.com/" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">12</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020.7.19~2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>你好世界</span></div><div><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

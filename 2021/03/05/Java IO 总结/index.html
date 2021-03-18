@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="Java I&#x2F;O 总结                           Separator       12System.out.println(File.separator);&#x2F;&#x2F;因为用&#39;&#x2F;&#39; 显示java: 非法转义符，所以用File.separatorSystem.out.println(File.pathSeparator);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java IO 总结">
+<meta property="og:url" content="https://kingsirz123.github.io/2021/03/05/Java%20IO%20%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="源一先生">
+<meta property="og:description" content="Java I&#x2F;O 总结                           Separator       12System.out.println(File.separator);&#x2F;&#x2F;因为用&#39;&#x2F;&#39; 显示java: 非法转义符，所以用File.separatorSystem.out.println(File.pathSeparator);">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-05T11:46:08.114Z">
+<meta property="article:modified_time" content="2021-03-12T12:47:08.618Z">
+<meta property="article:author" content="源一">
+<meta name="twitter:card" content="summary"><title>Java IO 总结 | 源一先生</title><link ref="canonical" href="https://kingsirz123.github.io/2021/03/05/Java%20IO%20%E6%80%BB%E7%BB%93/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">源一先生</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Java IO 总结</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-03-05</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-03-12</span></span></div></header><div class="post-body">
+        <h1 id="Java-I-O-总结"   >
+          <a href="#Java-I-O-总结" class="heading-link"><i class="fas fa-link"></i></a>Java I/O 总结</h1>
+      
+        <h2 id="Separator"   >
+          <a href="#Separator" class="heading-link"><i class="fas fa-link"></i></a>Separator</h2>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(File.separator);<span class="comment">//因为用'/' 显示java: 非法转义符，所以用File.separator</span></span><br><span class="line">System.out.println(File.pathSeparator);</span><br></pre></td></tr></table></div></figure>
+<a id="more"></a>
+
+<p><strong>路径</strong> ：Windows为,Linux为/。<br>;对应类似环境变量之类的分隔符。Windows系统为分号，Linux系统为冒号。</p>
+<p>因此，<strong>路径不要用常量字符串，而是采用字符串拼接Separator的方式来构造。</strong></p>
+
+        <h3 id="File类的构造方法"   >
+          <a href="#File类的构造方法" class="heading-link"><i class="fas fa-link"></i></a>File类的构造方法</h3>
+      <p>File(String pathname)</p>
+<p>创建File对象只是把<strong>字符串封装为File对象</strong>，不检查路径是否存在</p>
+
+        <h3 id="get方法"   >
+          <a href="#get方法" class="heading-link"><i class="fas fa-link"></i></a>get方法</h3>
+      <p>getPath（）<strong>返回</strong>构造器<strong>传入的路径</strong></p>
+<p>getAbsolutePath（）返回<strong>绝对路径</strong></p>
+<p>toString（）调用getPath（）</p>
+<p>getName（）返回<strong>末尾的文件或文件夹名称</strong></p>
+<p>length（）返回<strong>文件的字节数大小</strong>，只能操作文件，文件夹没有大小概念，如果文件<strong>不存在，则返回0</strong></p>
+
+        <h3 id="is方法"   >
+          <a href="#is方法" class="heading-link"><i class="fas fa-link"></i></a>is方法</h3>
+      <p>isDirectory（）与isFile（）在文件或文件夹不存在时都返回false，因此，在判断前使用exists（）先判断一下</p>
+
+        <h3 id="create方法"   >
+          <a href="#create方法" class="heading-link"><i class="fas fa-link"></i></a>create方法</h3>
+      <p>createFile（）</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"C:\\Users\\yan.DESKTOP-9DLHPV7\\Desktop\\java\\io\\test.txt"</span>);<span class="comment">//会创建文件夹</span></span><br><span class="line">System.out.println(file.createNewFile());</span><br></pre></td></tr></table></div></figure>
+
+<p>文件不存在，创建文件，返回true；</p>
+<p>文件存在，不会创建，返回false；</p>
+<p>只能创建文件，路径不存在会抛出异常。</p>
+<p><strong>mkdir只能创建单级目录，路径错误不存在返回false，mkdirs可以一同将父目录创建，只能创建文件夹</strong></p>
+<p>true-false逻辑与createFile（）相同</p>
+
+        <h3 id="delete方法"   >
+          <a href="#delete方法" class="heading-link"><i class="fas fa-link"></i></a>delete方法</h3>
+      <p>既可以删除文件也可以删除文件夹，删除此File对象代表的文件或目录</p>
+<p>文件或文件夹删除成功，返回true；</p>
+<p>文件或文件夹有内容不会删除以及构造方法中路径错误，返回false</p>
+<p>delete直接在硬盘上删除，不会经过回收站。</p>
+
+        <h3 id="list方法"   >
+          <a href="#list方法" class="heading-link"><i class="fas fa-link"></i></a>list方法</h3>
+      <p>String[] list（）返回子文件夹与子文件</p>
+<p>File[] listFiles() 返回子文件夹与子文件</p>
+<p>路径不存在与遍历文件会返回空指针异常，可以遍历到隐藏文件</p>
+
+        <h2 id="IO流"   >
+          <a href="#IO流" class="heading-link"><i class="fas fa-link"></i></a>IO流</h2>
+      <p>Writer流一般可以写String</p>
+
+        <h3 id="FileOutputStream"   >
+          <a href="#FileOutputStream" class="heading-link"><i class="fas fa-link"></i></a>FileOutputStream</h3>
+      <p>构造方法会创建文件</p>
+
+        <h4 id="write（int-b）"   >
+          <a href="#write（int-b）" class="heading-link"><i class="fas fa-link"></i></a>write（int b）</h4>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileOutputStream.write(<span class="number">126000</span>);</span><br></pre></td></tr></table></div></figure>
+
+<p>将指定的字节写入此输出流。write 的常规协定是：向输出流写入一个字节。要写入的字节是参数 b 的八个低位。b 的 24 个高位将被忽略。</p>
+<p>写入100会读出d，小整数（0-127）会以ASCII码转换，其余会以系统字符集转换</p>
+<p>如果想读出100，需要写入49,48,49</p>
+
+        <h4 id="write（byte-b）"   >
+          <a href="#write（byte-b）" class="heading-link"><i class="fas fa-link"></i></a>write（byte[] b）</h4>
+      <p>写入多个字节，每两个字节为一组，如果第一个字节为负数，则会两个组合为一个中文字符显示</p>
+<p>可以写入：</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileOutputStream.write(<span class="string">"你好"</span>.getBytes());</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="获取操作系统对应的换行符"   >
+          <a href="#获取操作系统对应的换行符" class="heading-link"><i class="fas fa-link"></i></a>获取操作系统对应的换行符</h4>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.getProperty(<span class="string">"line.separator"</span>)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h5 id="为什么要用System-getProperty-“line-separator”-代替-固定格式的换行符"   >
+          <a href="#为什么要用System-getProperty-“line-separator”-代替-固定格式的换行符" class="heading-link"><i class="fas fa-link"></i></a>为什么要用System.getProperty(“line.separator”)代替 固定格式的换行符</h5>
+      <ol>
+<li>具备平台无关性</li>
+<li>一次编写，到处运行</li>
+<li>更保险</li>
+</ol>
+
+        <h3 id="FileInputStream"   >
+          <a href="#FileInputStream" class="heading-link"><i class="fas fa-link"></i></a>FileInputStream</h3>
+      
+        <h4 id="int-read（）"   >
+          <a href="#int-read（）" class="heading-link"><i class="fas fa-link"></i></a>int read（）</h4>
+      <p>返回读取到的字节，会转换为整数，读到数据指针后移一位，读到文件末尾以及末尾之后返回-1,返回值为-1~255</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>((len = fis.read() )!= -<span class="number">1</span>)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="int-read-byte-b"   >
+          <a href="#int-read-byte-b" class="heading-link"><i class="fas fa-link"></i></a>int read(byte[] b)</h4>
+      <p>数组的长度一般定义为1024的整数倍</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>((len = fis.read( b) )!= -<span class="number">1</span>)<span class="comment">//len = b.length&#123;&#125;</span></span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="字符编码"   >
+          <a href="#字符编码" class="heading-link"><i class="fas fa-link"></i></a>字符编码</h3>
+      <p>所谓内码，是一门语言实现char或String类型时在内存内部使用的编码。<br>而Java是以UTF-16作为内存的字符存储格式的<br>UTF-16是两字节定长编码的，几乎可以翻译世界上所有语言。因此Java内部内存中一个char是占两字节的，不论是英文还是中文。比如’a’和’你’都是占两字节的。</p>
+<p>不同编码会导致字符编码后（外码）所占字节数是不同的。常见的有：<br>utf-8编码英文字符所占字节数:1<br>utf-8编码中文字符所占字节数:3</p>
+<p>GBK编码英文字符所占字节数:1<br>GBK编码中文字符所占字节数:2</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"a"</span>.getBytes(StandardCharsets.UTF_8).length);</span><br><span class="line">System.out.println(<span class="string">"a"</span>.getBytes(<span class="string">"gb2312"</span>).length);</span><br><span class="line">System.out.println(<span class="string">"你"</span>.getBytes(StandardCharsets.UTF_8).length);</span><br><span class="line">System.out.println(<span class="string">"你"</span>.getBytes(<span class="string">"gb2312"</span>).length);</span><br><span class="line"><span class="number">1132</span></span><br></pre></td></tr></table></div></figure>
+
+<p>Unicode 编码共有三种具体实现，分别为utf-8,utf-16,utf-32</p>
+
+        <h3 id="FileReader"   >
+          <a href="#FileReader" class="heading-link"><i class="fas fa-link"></i></a>FileReader</h3>
+      <p>只能使用IDE默认编码</p>
+
+        <h4 id="int-read（）-1"   >
+          <a href="#int-read（）-1" class="heading-link"><i class="fas fa-link"></i></a>int read（）</h4>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>((len = fis.read() )!= -<span class="number">1</span>)&#123;</span><br><span class="line">    System.out.println((<span class="keyword">char</span>)len);<span class="comment">//int强转为char</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="int-read-char-cbuf"   >
+          <a href="#int-read-char-cbuf" class="heading-link"><i class="fas fa-link"></i></a>int read(char[] cbuf)</h4>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>((len = fis.read( b) )!= -<span class="number">1</span>)<span class="comment">//len = b.length</span></span><br><span class="line">&#123;</span><br><span class="line">    System.out.println(<span class="keyword">new</span> String(CharBuffer,<span class="number">0</span>,len));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="FileWriter"   >
+          <a href="#FileWriter" class="heading-link"><i class="fas fa-link"></i></a>FileWriter</h3>
+      <p>只能使用IDE默认编码</p>
+
+        <h4 id="write（）"   >
+          <a href="#write（）" class="heading-link"><i class="fas fa-link"></i></a>write（）</h4>
+      <p><strong>*调用write（）方法会先把数据写入到内存缓冲区中（有一个字符转换为字节的过程），之后调用flush（）写入到文件中，close（）方法会调用flush（）方法将内存中未写入的内容写入到文件</strong>。*</p>
+<p>可以直接写字符数组与字符串</p>
+
+        <h3 id="try-catch-finally"   >
+          <a href="#try-catch-finally" class="heading-link"><i class="fas fa-link"></i></a>try-catch-finally</h3>
+      <p>try(FileOutputStream fileOutputStream = new FileOutputStream(“1.txt”,true);){</p>
+<p>}catch(Exception e){</p>
+<p>}</p>
+<p>不需要写finally，会自动关闭try括号中定义的资源</p>
+
+        <h3 id="Properties"   >
+          <a href="#Properties" class="heading-link"><i class="fas fa-link"></i></a>Properties</h3>
+      <p>用于操作.properties文件</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">properties.setProperty(string,string);</span><br><span class="line">properties.getProperty(string);</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="properties-store-writer-outputStream"   >
+          <a href="#properties-store-writer-outputStream" class="heading-link"><i class="fas fa-link"></i></a>properties.store(writer/outputStream)</h4>
+      <p>键值对持久化到文件</p>
+
+        <h4 id="properties-load-reader-intputStream"   >
+          <a href="#properties-load-reader-intputStream" class="heading-link"><i class="fas fa-link"></i></a>properties.load(reader/intputStream)</h4>
+      <p>读取键值对到内存</p>
+
+        <h3 id="BufferedInputStream"   >
+          <a href="#BufferedInputStream" class="heading-link"><i class="fas fa-link"></i></a>BufferedInputStream</h3>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> DEFAULT_BUFFER_SIZE = <span class="number">8192</span>;</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>第一段：InputStream是所有输入流的顶级类，当然只定义，不实现，具体的由子类去实现,如AudioInputStream, ByteArrayInputStream, FileInputStream等。<br>第二段：指明了InputStream的read(byte[],int off,int len)的实现方式，就是简单的调用read()方法而已，而read()方法是一次只读取一个字节，依然每次都要调用底层系统（从硬盘中读取），所以InputStream的read(byte[],int off,int len)性能和直接调用read()一样，byte[]缓冲区在这是摆设。<br>第三段：正是由于第二段所说，才建议子类提供性能更好的方式来覆盖read(byte[],int off,int len)方法。</p>
+<p><strong>InputStream</strong><br>InputStream是所有输入流的顶级类，当然只定义，不实现，具体的由子类去实现,如AudioInputStream, ByteArrayInputStream, FileInputStream等。<br>指明了InputStream的read(byte[],int off,int len)的实现方式，就是简单的调用read()方法而已，而read()方法是一次只读取一个字节，依然每次都要调用底层系统，所以InputStream的read(byte[],int off,int len)性能和直接调用read()一样，byte[]缓冲区在这是摆设。 所以才建议子类提供性能更好的方式来覆盖read(byte[],int off,int len)方法。<br><strong>FileInputStream</strong><br>两个read()方法都是用本地方法实现，因为FileInputStream是跟底层的操作系统交互的，没有比用本地方法来实现的性能更好，更容易的了。所以这里就采用了第三段里的建议，真正实现了缓存的功能，虽然我们并不知道如何实现的。<br>那么既然FileInputStream已经实现了缓存来提高性能，那么BufferedInputStream又拿来干嘛？<br><strong>BufferedInputStream</strong><br>为另一个输入流添加一些功能，即缓冲输入以及支持 mark 和 reset 方法的能力。在创建 BufferedInputStream 时，会创建一个内部缓冲区数组。在读取或跳过流中的字节时，可根据需要从包含的输入流再次填充该内部缓冲区，一次填充多个字节。mark 操作记录输入流中的某个点，reset 操作使得在从包含的输入流中获取新字节之前，再次读取自最后一次 mark 操作后读取的所有字节。</p>
+<p>其实上面所说的“缓冲输入”并不是真正的像FileInputStream那样用本地方法来提高性能，而是指在这基础上，为了程序员操作方便，内部提供了一个缓冲区(byte[1024*8] buf)，并装饰了FileInputStream类(构造BufferedInputStram时必须提供被装饰的InputStream就可看出)。<br>当用FileInputStream的时候，read()是从底层读一个字节，read(byte[],int off,int len)则是一次性读取了len-off个字节,我们需提供一个byte[]来存放，<br>而用BufferedInputStream的时候，其read()其实和read(byte[],int off,int len)一样，内部都是调用构造输入的FileInputStream（准确来说是调用的被修饰类）的read(byte[],int off,int len)方法，将底层数据读入到byte[]里，而且byte[]不需要我们来提供，类本身定义了一个byte[] buf数组来存放这些数据，所以，如果使用BufferedInputStream我们的程序又不需要对byte[]数组操作的话，直接这样写就行了：</p>
+</blockquote>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fis=<span class="keyword">new</span> FileInputStream(<span class="string">"d:\\a.txt"</span>);  </span><br><span class="line">BufferedInputStream bis=<span class="keyword">new</span> BufferedInputStream(fis);  </span><br><span class="line"><span class="keyword">int</span> data=<span class="number">0</span>;  </span><br><span class="line"><span class="keyword">while</span>((data=bis.read())!=-<span class="number">1</span>)&#123;</span><br><span class="line"><span class="comment">//......          </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<blockquote>
+<p>这样虽然也是一次读一个字节，但不是每次都从底层读取数据，而是一次调用底层系统读取了最多buf.length个字节到buf数组中，然后从buf中一次读一个字节，减少了频繁调用底层接口的开销。<br>如果是用BufferedInputStream的read(byte[],int off,int len)那缓冲区则由传入的byte[]来充当（虽然内部其实有时候还用到了buf，但表现出来的就是用传入的byte[]来缓冲)。</p>
+<p>讲了这么多，那如果要缓冲那该用FileInputStream还是BufferedInputStream呢？回到上面紫色的文字，BufferedInputStream主要不是提供buf，而是封装了缓冲和标记/回读的功能。如果你既不用到标记/回读功能，又不要操作中间的缓冲数组，那显而易见直接用FileInputStream的read(byte[],int off,int len)是效率最高的。</p>
+<p>最后说下为什么用缓冲性能就更好，因为应用程序可以将多个字节写入底层输出流中(native read(byte))，而不必针对每个字节写入都调用底层系统(native read())。OutputStream原理基本差不多。</p>
+</blockquote>
+
+        <h3 id="BufferedOutputStream"   >
+          <a href="#BufferedOutputStream" class="heading-link"><i class="fas fa-link"></i></a>BufferedOutputStream</h3>
+      <p><strong>需要flush（）</strong></p>
+
+        <h3 id="BufferedWriter"   >
+          <a href="#BufferedWriter" class="heading-link"><i class="fas fa-link"></i></a>BufferedWriter</h3>
+      
+        <h4 id="void-newLine（）"   >
+          <a href="#void-newLine（）" class="heading-link"><i class="fas fa-link"></i></a>void newLine（）</h4>
+      <p>可以根据操作系统写入换行符</p>
+
+        <h3 id="BufferedReader"   >
+          <a href="#BufferedReader" class="heading-link"><i class="fas fa-link"></i></a>BufferedReader</h3>
+      
+        <h4 id="String-readLine（）"   >
+          <a href="#String-readLine（）" class="heading-link"><i class="fas fa-link"></i></a>String readLine（）</h4>
+      <p>读取一行，遇到\r,\n,\r\n视为行结束，到达流末尾返回null</p>
+
+        <h2 id="java中使用正则表达式的情况"   >
+          <a href="#java中使用正则表达式的情况" class="heading-link"><i class="fas fa-link"></i></a>java中使用正则表达式的情况</h2>
+      <p><strong>(1) String</strong></p>
+<p>public boolean matches(String regex)</p>
+<p>public String replaceAll(String regex, String replacement)</p>
+<p>public String replaceFirst(String regex, String replacement)</p>
+<p>public String[] split(String regex)</p>
+<p><strong>(2) Pattern</strong></p>
+<p>public static Pattern compile(String regex)</p>
+<p>public static boolean matches(String regex, CharSequence input)</p>
+
+        <h3 id="正则表达式中的特殊字符"   >
+          <a href="#正则表达式中的特殊字符" class="heading-link"><i class="fas fa-link"></i></a>正则表达式中的特殊字符</h3>
+      <div class="table-container"><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>说明</th>
+<th>input</th>
+<th>regex1</th>
+<th>regex2</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>匹配输入字符串的<strong>开始位置</strong>。要匹配 “^” 字符本身，请使用 “^”</td>
+<td>“^”</td>
+<td>\^</td>
+<td>[^]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配输入字符串的<strong>结尾位置</strong>。要匹配 “$” 字符本身，请使用 “$”</td>
+<td>“$”</td>
+<td>\$</td>
+<td>[$]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除了换行符(\n)以外的任意<strong>一个字符</strong>。要匹配小数点本身，请使用 “.“</td>
+<td>“.”</td>
+<td>.</td>
+<td>[.]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[ ]</td>
+<td>用来自定义能够匹配 <strong>‘**</strong>多种字符<strong><em>\</em>’</strong> 的表达式。要匹配中括号，请使用 “[“ 和 “]“</td>
+<td>“[“</td>
+<td>[</td>
+<td>[[]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>*</td>
+<td>修饰匹配次数为 <strong>0</strong> <strong>次或任意次</strong>。要匹配 “<em>“ 字符本身，请使用 “\</em>“</td>
+<td>“*”</td>
+<td>*</td>
+<td>[*]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>\</td>
+<td>将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符。</td>
+<td>“\“</td>
+<td>\\</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>?</td>
+<td>修饰匹配次数为 <strong>0</strong> <strong>次或</strong> <strong>1</strong> <strong>次</strong>。要匹配 “?” 字符本身，请使用 “?”</td>
+<td>“?”</td>
+<td>\?</td>
+<td>[?]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>+</td>
+<td>修饰匹配次数为<strong>至少</strong> <strong>1**</strong>次**。要匹配 “+” 字符本身，请使用 “+“</td>
+<td>“+”</td>
+<td>+</td>
+<td>[+]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>{ }</td>
+<td>修饰匹配次数的符号。要匹配大括号，请使用 “{“ 和 “}“</td>
+<td>“{“</td>
+<td>{</td>
+<td>[{]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+<td>左右两边表达式之间 “或” 关系。匹配 “\</td>
+<td>“ 本身，请使用 “\</td>
+<td>“</td>
+<td>“\</td>
+<td>“</td>
+<td>\</td>
+<td></td>
+<td>[\</td>
+<td>]</td>
+</tr>
+<tr>
+<td>( )</td>
+<td>标记一个子表达式的开始和结束位置。要匹配小括号，请使用 “(“ 和 “)“</td>
+<td>“(“</td>
+<td>(</td>
+<td>[(]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+
+        <h2 id="指定字符编码写文件"   >
+          <a href="#指定字符编码写文件" class="heading-link"><i class="fas fa-link"></i></a>指定字符编码写文件</h2>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BufferedWriter bufferedWriter = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream((<span class="string">"1.txt"</span>)),<span class="string">"UTF-8"</span>));</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="ObjectInputStream-ObjectOutputStream"   >
+          <a href="#ObjectInputStream-ObjectOutputStream" class="heading-link"><i class="fas fa-link"></i></a>ObjectInputStream/ObjectOutputStream</h3>
+      
+        <h4 id="对象的序列化与反序列化"   >
+          <a href="#对象的序列化与反序列化" class="heading-link"><i class="fas fa-link"></i></a>对象的序列化与反序列化</h4>
+      
+        <h5 id="objectInputStream-readObject（）"   >
+          <a href="#objectInputStream-readObject（）" class="heading-link"><i class="fas fa-link"></i></a>objectInputStream.readObject（）</h5>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ObjectInputStream objectInputStream = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">"1.txt"</span>));</span><br></pre></td></tr></table></div></figure>
+
+
+        <h5 id="objectOutputStream-writeObject"   >
+          <a href="#objectOutputStream-writeObject" class="heading-link"><i class="fas fa-link"></i></a>objectOutputStream.writeObject</h5>
+      <p><strong>序列化的是对象，被static修饰的，先于对象加载，不能被序列化</strong>，</p>
+<p>被transient修饰的不能被序列化</p>
+
+        <h5 id="序列号版本声明"   >
+          <a href="#序列号版本声明" class="heading-link"><i class="fas fa-link"></i></a>序列号版本声明</h5>
+      <p>private static final long serialVersionUID= 1L;long需要使用原始类型，如果不指定修改类会导致异常</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object o = objectInputStream.readObject();</span><br><span class="line">System.out.println(o);Person p =(Person) o;</span><br></pre></td></tr></table></div></figure>
+
+<p>反序列化得到的o需要强转为Person才能拿到方法与属性等，反序列化后以改动后的对象为准</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://kingsirz123.github.io">源一</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://kingsirz123.github.io/2021/03/05/Java%20IO%20%E6%80%BB%E7%BB%93/">https://kingsirz123.github.io/2021/03/05/Java%20IO%20%E6%80%BB%E7%BB%93/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2021/03/04/Java%E9%9B%86%E5%90%88/"><span class="paginator-prev__text">Java集合</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-I-O-总结"><span class="toc-number">1.</span> <span class="toc-text">
+          Java I&#x2F;O 总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Separator"><span class="toc-number">1.1.</span> <span class="toc-text">
+          Separator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#File类的构造方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">
+          File类的构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get方法"><span class="toc-number">1.1.2.</span> <span class="toc-text">
+          get方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#is方法"><span class="toc-number">1.1.3.</span> <span class="toc-text">
+          is方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#create方法"><span class="toc-number">1.1.4.</span> <span class="toc-text">
+          create方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delete方法"><span class="toc-number">1.1.5.</span> <span class="toc-text">
+          delete方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list方法"><span class="toc-number">1.1.6.</span> <span class="toc-text">
+          list方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO流"><span class="toc-number">1.2.</span> <span class="toc-text">
+          IO流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FileOutputStream"><span class="toc-number">1.2.1.</span> <span class="toc-text">
+          FileOutputStream</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#write（int-b）"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">
+          write（int b）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#write（byte-b）"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">
+          write（byte[] b）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取操作系统对应的换行符"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">
+          获取操作系统对应的换行符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么要用System-getProperty-“line-separator”-代替-固定格式的换行符"><span class="toc-number">1.2.1.3.1.</span> <span class="toc-text">
+          为什么要用System.getProperty(“line.separator”)代替 固定格式的换行符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileInputStream"><span class="toc-number">1.2.2.</span> <span class="toc-text">
+          FileInputStream</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#int-read（）"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">
+          int read（）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#int-read-byte-b"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">
+          int read(byte[] b)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符编码"><span class="toc-number">1.2.3.</span> <span class="toc-text">
+          字符编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileReader"><span class="toc-number">1.2.4.</span> <span class="toc-text">
+          FileReader</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#int-read（）-1"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">
+          int read（）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#int-read-char-cbuf"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">
+          int read(char[] cbuf)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileWriter"><span class="toc-number">1.2.5.</span> <span class="toc-text">
+          FileWriter</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#write（）"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">
+          write（）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#try-catch-finally"><span class="toc-number">1.2.6.</span> <span class="toc-text">
+          try-catch-finally</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Properties"><span class="toc-number">1.2.7.</span> <span class="toc-text">
+          Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#properties-store-writer-outputStream"><span class="toc-number">1.2.7.1.</span> <span class="toc-text">
+          properties.store(writer&#x2F;outputStream)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#properties-load-reader-intputStream"><span class="toc-number">1.2.7.2.</span> <span class="toc-text">
+          properties.load(reader&#x2F;intputStream)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedInputStream"><span class="toc-number">1.2.8.</span> <span class="toc-text">
+          BufferedInputStream</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedOutputStream"><span class="toc-number">1.2.9.</span> <span class="toc-text">
+          BufferedOutputStream</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedWriter"><span class="toc-number">1.2.10.</span> <span class="toc-text">
+          BufferedWriter</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#void-newLine（）"><span class="toc-number">1.2.10.1.</span> <span class="toc-text">
+          void newLine（）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedReader"><span class="toc-number">1.2.11.</span> <span class="toc-text">
+          BufferedReader</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String-readLine（）"><span class="toc-number">1.2.11.1.</span> <span class="toc-text">
+          String readLine（）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java中使用正则表达式的情况"><span class="toc-number">1.3.</span> <span class="toc-text">
+          java中使用正则表达式的情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式中的特殊字符"><span class="toc-number">1.3.1.</span> <span class="toc-text">
+          正则表达式中的特殊字符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指定字符编码写文件"><span class="toc-number">1.4.</span> <span class="toc-text">
+          指定字符编码写文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ObjectInputStream-ObjectOutputStream"><span class="toc-number">1.4.1.</span> <span class="toc-text">
+          ObjectInputStream&#x2F;ObjectOutputStream</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对象的序列化与反序列化"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">
+          对象的序列化与反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#objectInputStream-readObject（）"><span class="toc-number">1.4.1.1.1.</span> <span class="toc-text">
+          objectInputStream.readObject（）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#objectOutputStream-writeObject"><span class="toc-number">1.4.1.1.2.</span> <span class="toc-text">
+          objectOutputStream.writeObject</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#序列号版本声明"><span class="toc-number">1.4.1.1.3.</span> <span class="toc-text">
+          序列号版本声明</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/3.jpeg" alt="avatar"></div><p class="sidebar-ov-author__text">一生中你唯一需要回头的时候，是为了看自己到底走了多远。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/KingSirZ123/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://plus.google.com/" target="_blank" rel="noopener" data-popover="Google" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-google"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://youtube.com/" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">12</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020.7.19~2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>你好世界</span></div><div><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

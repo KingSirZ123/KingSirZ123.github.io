@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="常用类                           Obiect       Object是类层次结构的根类，所有的类都直接或者间接的继承自Object类。Object类的构造方法有一个，并且是无参构造">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用类">
+<meta property="og:url" content="https://kingsirz123.github.io/2021/03/18/%E5%B8%B8%E7%94%A8%E7%B1%BB/index.html">
+<meta property="og:site_name" content="源一先生">
+<meta property="og:description" content="常用类                           Obiect       Object是类层次结构的根类，所有的类都直接或者间接的继承自Object类。Object类的构造方法有一个，并且是无参构造">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-18T09:22:30.361Z">
+<meta property="article:modified_time" content="2021-03-18T11:54:46.424Z">
+<meta property="article:author" content="源一">
+<meta name="twitter:card" content="summary"><title>常用类 | 源一先生</title><link ref="canonical" href="https://kingsirz123.github.io/2021/03/18/%E5%B8%B8%E7%94%A8%E7%B1%BB/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">源一先生</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">常用类</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-03-18</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-03-18</span></span></div></header><div class="post-body">
+        <h1 id="常用类"   >
+          <a href="#常用类" class="heading-link"><i class="fas fa-link"></i></a>常用类</h1>
+      
+        <h2 id="Obiect"   >
+          <a href="#Obiect" class="heading-link"><i class="fas fa-link"></i></a>Obiect</h2>
+      <p>Object是类层次结构的根类，<strong>所有的类都直接或者间接的继承自Object类。</strong><br>Object类的构造方法<strong>有一个</strong>，并且是<strong>无参构造</strong></p>
+<a id="more"></a>
+
+        <h3 id="getClass-方法"   >
+          <a href="#getClass-方法" class="heading-link"><i class="fas fa-link"></i></a>getClass()方法</h3>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> 类&lt;?&gt; getClass()</span><br></pre></td></tr></table></div></figure>
+
+<ul>
+<li><p>返回引用中存储的实际对象类型</p>
+</li>
+<li><p>应用：通常用于判断两个引用中实际存储对象类型是否相同</p>
+</li>
+<li><p>对象名.getClass();</p>
+</li>
+</ul>
+
+        <h3 id="hashCode-方法"   >
+          <a href="#hashCode-方法" class="heading-link"><i class="fas fa-link"></i></a>hashCode()方法</h3>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span></span><br></pre></td></tr></table></div></figure>
+
+<ul>
+<li>返回对象的哈希码值</li>
+<li>哈希值根据对象的地址或字符串或数字使用hash算法计算出来的int类型的数值。</li>
+<li>一般情况下相同对象返回相同哈希码。</li>
+<li>对象名.hashCode();</li>
+</ul>
+
+        <h3 id="toString-方法"   >
+          <a href="#toString-方法" class="heading-link"><i class="fas fa-link"></i></a>toString()方法</h3>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Stirng <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<ul>
+<li><p>返回该对象的字符串表示</p>
+</li>
+<li><p>可以根据程序需求覆盖该方法</p>
+</li>
+</ul>
+
+        <h3 id="equal-方法"   >
+          <a href="#equal-方法" class="heading-link"><i class="fas fa-link"></i></a>equal()方法</h3>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span></span><br></pre></td></tr></table></div></figure>
+
+<ul>
+<li>默认实现为<strong>this==obj</strong>,比较两个对象的地址是否相同。</li>
+<li>可进行覆盖，比较两个对象的内容是否相同</li>
+</ul>
+<p>覆盖步骤：</p>
+<ul>
+<li>比较两个引用是否指向同一个对象。（==）</li>
+<li>·判断obj是否为null。</li>
+<li>·判断两个引用指向的实际对象类型是否一致。（instanceof 或者getClass()）</li>
+<li>强制类型转换。</li>
+<li>依次比较各个属性值是否相同。</li>
+</ul>
+
+        <h3 id="finalize-方法"   >
+          <a href="#finalize-方法" class="heading-link"><i class="fas fa-link"></i></a>finalize()方法</h3>
+      <ul>
+<li>当对象被判定为垃圾对象时，<strong>由JVM自动调用此方法</strong>，用以<strong>标记垃圾对象</strong>，进入回收队列。</li>
+<li>垃圾对象:<strong>没有有效引用指向此对象时</strong>，为垃圾对象。</li>
+<li>垃圾回收:由<strong>GC销毁垃圾对象</strong>，释放数据存储空间。</li>
+<li>自动回收机制:<strong>JVM的内存耗尽，一次性回收所有垃圾对象</strong>。</li>
+<li>手动回收机制:使用<strong>System.gc();通知JVM执行垃圾回收</strong>。</li>
+</ul>
+
+        <h2 id="包装类"   >
+          <a href="#包装类" class="heading-link"><i class="fas fa-link"></i></a>包装类</h2>
+      <ul>
+<li>基本数据类型所对应的引用数据类型。</li>
+<li>Object可统一所有数据，包装类的默认值是null。</li>
+</ul>
+
+        <h3 id="类型转换与装箱和拆箱"   >
+          <a href="#类型转换与装箱和拆箱" class="heading-link"><i class="fas fa-link"></i></a>类型转换与装箱和拆箱</h3>
+      <ul>
+<li><p>8种包装类提供不同类型间的转换方式，Number父类中提供的6个共性方法。</p>
+<ul>
+<li><p>jdk1.5之前：</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num1=<span class="number">18</span>;</span><br><span class="line"><span class="comment">//装箱</span></span><br><span class="line">Integer integer1=<span class="keyword">new</span> Integer(num1) ;</span><br><span class="line">Integer integer2=Integer.valueof( num1);</span><br><span class="line"><span class="comment">//拆箱</span></span><br><span class="line">integer integer3=<span class="keyword">new</span> Integer(<span class="number">103</span>) ;</span><br><span class="line"><span class="keyword">int</span> num2=integer3.intvalue();</span><br></pre></td></tr></table></div></figure>
+</li>
+<li><p>jdk1.5之后：</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age=<span class="number">30</span>;</span><br><span class="line">Integer integer4=age;<span class="comment">//自动拆和</span></span><br><span class="line"><span class="keyword">int</span> age2=integer4;</span><br></pre></td></tr></table></div></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>parseXXX()静态方法（字符串转换为基本类型）</p>
+</li>
+<li><p>valueOf()静态方法（-128~127）</p>
+</li>
+</ul>
+
+        <h3 id="整数缓冲区"   >
+          <a href="#整数缓冲区" class="heading-link"><i class="fas fa-link"></i></a>整数缓冲区</h3>
+      <ul>
+<li>Java预先创建了256个常用的整数包装类型对象。</li>
+<li>在实际应用当中,对已创建的对象进行复用。</li>
+</ul>
+
+        <h2 id="String类"   >
+          <a href="#String类" class="heading-link"><i class="fas fa-link"></i></a>String类</h2>
+      <ul>
+<li>字符串是常量，<strong>创建之后不可改变</strong>。</li>
+<li>字符串字面值存储在<strong>字符串池</strong>（在方法区中）中，可以<strong>共享</strong>。</li>
+<li>String s = “Hello” ;产生一个对象，字符串池中存储。</li>
+<li>String s = new String(“Hello”);产生两个对象，堆、池各存储一个。（<strong>创建两个s1和s2，虽然都指向常量池的“Hello”，但是栈指向堆的地址不同</strong>）</li>
+</ul>
+
+        <h3 id="常用方法"   >
+          <a href="#常用方法" class="heading-link"><i class="fas fa-link"></i></a>常用方法</h3>
+      <ul>
+<li><p>public int length():返回字符串的长度。</p>
+</li>
+<li><p>public char charAt(int index):根据下标获取字符。</p>
+</li>
+<li><p>.public boolean contains(String str) :判断当前字符串中是否包含str。</p>
+</li>
+<li><p>public char[] toCharArray( :将字符串转换成数组。</p>
+</li>
+<li><p>public int indexOf(String str):查找str首次出现的下标，存在，则返回该下标;不存在，则返回-1。</p>
+</li>
+<li><p>public int lastIndexOf(String str):查找字符串在当前字符串中最后一次出现的下标索引。</p>
+</li>
+<li><p>public String trim():去掉字符串前后的空格。-</p>
+</li>
+<li><p>public String toUpperCase():将小写转成大写。</p>
+</li>
+<li><p>public boolean endWith(String str):判断字符串是否以str结尾。</p>
+</li>
+<li><p>public String replace(char oldChar, char newChar);将旧字符串替换成新字符串</p>
+</li>
+<li><p>public String[] split(String str):根据str做拆分。</p>
+</li>
+</ul>
+<p>equal （string比较值）和compareTo</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String s3=<span class="string">"abc"</span> ;<span class="comment">//a=97</span></span><br><span class="line">string s4=<span class="string">""</span>Ryzawe<span class="string">";//x=120</span></span><br><span class="line"><span class="string">system.out.println(s3.compareTo(s4));//结果是-23</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">string s5="</span>abc<span class="string">";</span></span><br><span class="line"><span class="string">string s6="</span>abcxyz;</span><br><span class="line">System.out. print1n(s5.compareTo(s6));<span class="comment">//结果是-3比较长度</span></span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h3 id="案例"   >
+          <a href="#案例" class="heading-link"><i class="fas fa-link"></i></a>案例</h3>
+      <p>本已知String str - “this is a text”;</p>
+<ol>
+<li><p>将str中的单词单独获联出来</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">string[]arrmstr-split(”<span class="string">"“);</span></span><br><span class="line"><span class="string">string[]arrmstr-split(”"</span>“);</span><br><span class="line">system.out.println(<span class="string">"-----1将str中的单词单独获取出来-------"</span>);</span><br><span class="line"><span class="keyword">for</span> (string s : arr) &#123;</span><br><span class="line">    system.out.println(s);</span><br><span class="line">    system.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>将str中的text替换为practice</p>
+</li>
+<li><p>在text前面插入一个easy</p>
+</li>
+<li><p>将每个单词的首字时改为大写</p>
+</li>
+</ol>
+
+        <h3 id="可变字符串"   >
+          <a href="#可变字符串" class="heading-link"><i class="fas fa-link"></i></a>可变字符串</h3>
+      <ul>
+<li>StringBuffer:可变长字符串，JDK1.0提供，运行效率慢、线程安全。</li>
+<li>StringBuilder:可变长字符串，JDK5.0提供，运行效率快、线程不安全。</li>
+</ul>
+<p>优点：和String区别</p>
+<p>(1)效率比String高</p>
+<p>(2)比String节省内存</p>
+
+        <h4 id="StringBuffer和StringBuilder方法"   >
+          <a href="#StringBuffer和StringBuilder方法" class="heading-link"><i class="fas fa-link"></i></a>StringBuffer和StringBuilder方法</h4>
+      <ul>
+<li>append()</li>
+<li>insert(0,””)指定位置</li>
+<li>replace(2,5,””)指定位置</li>
+<li>delete(0,5)指定位置</li>
+</ul>
+
+        <h4 id="BigDecimal"   >
+          <a href="#BigDecimal" class="heading-link"><i class="fas fa-link"></i></a>BigDecimal</h4>
+      <p>很多实际应用中需要精确运算,而<strong>double是近似值存储</strong>,不在符合要求,需要借助BlgDecimal。</p>
+<ul>
+<li>位置:java.math包中。</li>
+<li>作用:精确计算浮点数。</li>
+<li>创建方式: BigDecimal bd=new BigDecimal(“1.0”) ;(<strong>一定要用字符串</strong>，字符串最准确)</li>
+</ul>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">BigDecimal r1=bd1.subtract(bd2);<span class="comment">//减法</span></span><br><span class="line">add<span class="comment">//加法</span></span><br><span class="line">multiply<span class="comment">//乘法</span></span><br><span class="line">divide<span class="comment">//除法</span></span><br></pre></td></tr></table></div></figure>
+
+<ul>
+<li>除法: divide(BigDecimal bd,int scal,RoundingMode mode)<ul>
+<li>参数scal :指定精确到小数点后几位。</li>
+<li>参数mode :指定小数部分的取舍模式,通常采用四舍五入的模式</li>
+<li>取值为BigDecimal.ROUPND_HALF_UP.</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="Date类"   >
+          <a href="#Date类" class="heading-link"><i class="fas fa-link"></i></a>Date类</h2>
+      <ul>
+<li>Date表示特定的瞬间，精确到毫秒。Date类中的大部分方法都已经被Calendar类中的方法所取代。</li>
+<li>时间单位：1秒=1000毫秒·1毫秒=1000微秒·1微秒=1000纳秒</li>
+</ul>
+
+        <h4 id="方法"   >
+          <a href="#方法" class="heading-link"><i class="fas fa-link"></i></a>方法</h4>
+      <p>after</p>
+<p>before</p>
+<p>compare 比较</p>
+<p>equal 比较相等</p>
+
+        <h2 id="Calendar类"   >
+          <a href="#Calendar类" class="heading-link"><i class="fas fa-link"></i></a>Calendar类</h2>
+      <ul>
+<li><p>Calendar提供了获取或设置各种日历字段的方法。</p>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li>protected Calendar() :<strong>由于修饰符是protected，所以无法直接创建该对象。</strong></li>
+</ul>
+</li>
+<li><p>其他方法</p>
+<ul>
+<li>static Calendar getInstance()  使用默认时区和区域<strong>获取日历</strong></li>
+<li>void set(int year,int month,int date, int hourofday,int minute,int second)  <strong>设置日历</strong>的年、月、日、时、分、秒。</li>
+<li>int get(int field)  <strong>返回给定日历字段的值</strong>。字段比如年、月、日等</li>
+<li>void setTime(Date date)   用<strong>给定的Date设置此日历的时间</strong>。Date-Calendar</li>
+<li>Date getTime()  <strong>返回一个Date表示此日历的时间</strong>。Calendar-Date</li>
+<li>void add(int field,int amount)  按照日历的规则，给指定<strong>字段添加或减少时间量</strong></li>
+<li>long getTimelnMillies()   <strong>毫秒</strong>为单位<strong>返回该日历的时间值</strong></li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="SimpleDateFormat"   >
+          <a href="#SimpleDateFormat" class="heading-link"><i class="fas fa-link"></i></a>SimpleDateFormat</h2>
+      <ul>
+<li><p>是一个以与语言环境有关的方式来格式化和解析日期的具体类。</p>
+</li>
+<li><p>进行格式化（日期-&gt;文本）、解析（文本-&gt;日期）。常用的时间模式字母</p>
+</li>
+</ul>
+
+        <h2 id="System类"   >
+          <a href="#System类" class="heading-link"><i class="fas fa-link"></i></a>System类</h2>
+      <p>System系统类，主要用于获取系统的属性数据和其他操作，构造方法私有的。</p>
+
+        <h3 id="方法-1"   >
+          <a href="#方法-1" class="heading-link"><i class="fas fa-link"></i></a>方法</h3>
+      <ul>
+<li><p>static void arraycopy(…)  复制数组</p>
+</li>
+<li><p>static long currentTimeMillis();  获取当前系统时间，返回的是毫秒值</p>
+</li>
+<li><p>static void gc();  建议JVM赶快启动垃圾回收器回收垃圾</p>
+</li>
+<li><p>static void exit(int status);  退出jvm，如果参数是0表示正常退出jvm，非0表示异常退出jvm。</p>
+</li>
+</ul>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://kingsirz123.github.io">源一</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://kingsirz123.github.io/2021/03/18/%E5%B8%B8%E7%94%A8%E7%B1%BB/">https://kingsirz123.github.io/2021/03/18/%E5%B8%B8%E7%94%A8%E7%B1%BB/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2021/03/18/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Java集合框架</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2021/03/18/%E5%86%85%E9%83%A8%E7%B1%BB/"><span class="paginator-prev__text">内部类</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用类"><span class="toc-number">1.</span> <span class="toc-text">
+          常用类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Obiect"><span class="toc-number">1.1.</span> <span class="toc-text">
+          Obiect</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#getClass-方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">
+          getClass()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hashCode-方法"><span class="toc-number">1.1.2.</span> <span class="toc-text">
+          hashCode()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toString-方法"><span class="toc-number">1.1.3.</span> <span class="toc-text">
+          toString()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equal-方法"><span class="toc-number">1.1.4.</span> <span class="toc-text">
+          equal()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finalize-方法"><span class="toc-number">1.1.5.</span> <span class="toc-text">
+          finalize()方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包装类"><span class="toc-number">1.2.</span> <span class="toc-text">
+          包装类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类型转换与装箱和拆箱"><span class="toc-number">1.2.1.</span> <span class="toc-text">
+          类型转换与装箱和拆箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整数缓冲区"><span class="toc-number">1.2.2.</span> <span class="toc-text">
+          整数缓冲区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String类"><span class="toc-number">1.3.</span> <span class="toc-text">
+          String类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用方法"><span class="toc-number">1.3.1.</span> <span class="toc-text">
+          常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-number">1.3.2.</span> <span class="toc-text">
+          案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可变字符串"><span class="toc-number">1.3.3.</span> <span class="toc-text">
+          可变字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#StringBuffer和StringBuilder方法"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">
+          StringBuffer和StringBuilder方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BigDecimal"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">
+          BigDecimal</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date类"><span class="toc-number">1.4.</span> <span class="toc-text">
+          Date类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">
+          方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calendar类"><span class="toc-number">1.5.</span> <span class="toc-text">
+          Calendar类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SimpleDateFormat"><span class="toc-number">1.6.</span> <span class="toc-text">
+          SimpleDateFormat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#System类"><span class="toc-number">1.7.</span> <span class="toc-text">
+          System类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-1"><span class="toc-number">1.7.1.</span> <span class="toc-text">
+          方法</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/3.jpeg" alt="avatar"></div><p class="sidebar-ov-author__text">一生中你唯一需要回头的时候，是为了看自己到底走了多远。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/KingSirZ123/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://plus.google.com/" target="_blank" rel="noopener" data-popover="Google" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-google"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://youtube.com/" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">15</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020.7.19~2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>你好世界</span></div><div><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

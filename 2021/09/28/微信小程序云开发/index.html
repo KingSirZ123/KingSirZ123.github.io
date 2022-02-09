@@ -1,0 +1,725 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="微信小程序云开发       环境id:cloud1-9g5ymoujbf895b03 配置云环境： 1234567891011&#x2F;&#x2F; app.jsApp(&amp;#123;  &#x2F;&#x2F; 小程序一启动就执行  onLaunch() &amp;#123;    console.log(&#39;小程序开始启动了&#39;)     wx.cloud.init(&amp;#123;       env:&#39;cloud1-9g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序云开发">
+<meta property="og:url" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="源一先生">
+<meta property="og:description" content="微信小程序云开发       环境id:cloud1-9g5ymoujbf895b03 配置云环境： 1234567891011&#x2F;&#x2F; app.jsApp(&amp;#123;  &#x2F;&#x2F; 小程序一启动就执行  onLaunch() &amp;#123;    console.log(&#39;小程序开始启动了&#39;)     wx.cloud.init(&amp;#123;       env:&#39;cloud1-9g">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/1.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/2.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/3.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/4.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/5.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/6.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/7.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/8.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/9.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/10.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/11.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/12.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/13.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/14.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/15.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/16.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/17.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/18.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/19.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/20.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/22.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/24.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/21.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/23.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/25.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/26.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/27.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/28.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/29.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/30.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/31.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/32.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/33.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/34.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/35.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/36.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/37.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/38.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/39.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/40.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/41.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/42.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/43.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/44.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/45.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/46.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/47.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/48.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/49.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/50.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/51.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/52.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/53.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/54.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/55.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/56.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/57.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/58.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/59.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/60.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/61.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/62.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/63.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/64.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/65.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/66.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/67.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/68.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/69.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/70.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/71.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/72.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/73.png">
+<meta property="article:published_time" content="2021-09-28T02:28:03.919Z">
+<meta property="article:modified_time" content="2021-10-04T02:51:55.264Z">
+<meta property="article:author" content="源一">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/1.png"><title>微信小程序云开发 | 源一先生</title><link ref="canonical" href="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">源一先生</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">微信小程序云开发</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-09-28</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-10-04</span></span></div></header><div class="post-body">
+        <h1 id="微信小程序云开发"   >
+          <a href="#微信小程序云开发" class="heading-link"><i class="fas fa-link"></i></a>微信小程序云开发</h1>
+      <p>环境id:cloud1-9g5ymoujbf895b03</p>
+<p><strong>配置云环境</strong>：</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line">App(&#123;</span><br><span class="line">  <span class="comment">// 小程序一启动就执行</span></span><br><span class="line">  onLaunch() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'小程序开始启动了'</span>)</span><br><span class="line">     wx.cloud.init(&#123;</span><br><span class="line">       env:<span class="string">'cloud1-9g5ymoujbf895b03'</span></span><br><span class="line"></span><br><span class="line">     &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></div></figure>
+
+<a id="more"></a>
+
+
+        <h2 id="云数据库操作"   >
+          <a href="#云数据库操作" class="heading-link"><i class="fas fa-link"></i></a>云数据库操作</h2>
+      
+        <h3 id="数据库：查询"   >
+          <a href="#数据库：查询" class="heading-link"><i class="fas fa-link"></i></a>数据库：查询</h3>
+      <figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/shujuku/shujuku.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;list&#125;&#125;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>商品名：&#123;&#123;item.name&#125;&#125;,价格：&#123;&#123;item.price&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/shujuku/shujuku.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data:&#123;</span><br><span class="line">      list:[]</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad()&#123;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">let</span> that=<span class="keyword">this</span></span><br><span class="line">      wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">      .get(&#123;<span class="comment">//查询</span></span><br><span class="line">        success(res)&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">'请求成功'</span>,res)</span><br><span class="line">           that.setData(&#123;</span><br><span class="line">             list:res.data</span><br><span class="line">           &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        fail(err)&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'请求失败'</span>,err)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      <span class="comment">//es6的简结写法</span></span><br><span class="line">      wx.cloud.database().collection(<span class="string">'goods'</span>).get()</span><br><span class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'2成功'</span>,res)</span><br><span class="line">          <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">            list:res.data</span><br><span class="line">          &#125;)</span><br><span class="line">         &#125;)</span><br><span class="line">        .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'2失败'</span>,err)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;  </span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="条件查询where"   >
+          <a href="#条件查询where" class="heading-link"><i class="fas fa-link"></i></a>条件查询where</h3>
+      <figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/shujuku/shujuku.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data:&#123;</span><br><span class="line">      list:[]</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad()&#123;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//es6的简结写法</span></span><br><span class="line">      wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">      .where(&#123;<span class="comment">//条件查询</span></span><br><span class="line">        name:<span class="string">'苹果'</span></span><br><span class="line">      &#125;)</span><br><span class="line">      .get()</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'2成功'</span>,res)</span><br><span class="line">          <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">            list:res.data</span><br><span class="line">          &#125;)</span><br><span class="line">         &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'2失败'</span>,err)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;  </span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="add"   >
+          <a href="#add" class="heading-link"><i class="fas fa-link"></i></a>add</h3>
+      <figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/add/add.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"add"</span>&gt;</span>点击添加<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">   onLoad()&#123;</span><br><span class="line">     </span><br><span class="line">   &#125;,</span><br><span class="line">   add()&#123;</span><br><span class="line">    wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">    .add(&#123;</span><br><span class="line">      data:&#123;</span><br><span class="line">         name:<span class="string">'西瓜'</span>,</span><br><span class="line">         price:<span class="number">20</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'添加成功'</span>,res)</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'失败'</span>,res)</span><br><span class="line">    &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="update"   >
+          <a href="#update" class="heading-link"><i class="fas fa-link"></i></a>update</h3>
+      <figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"update"</span>&gt;</span>修改数据<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">update()&#123;</span><br><span class="line">    wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">    .doc(<span class="string">'2d44d6c26153cdab103b75d66c78279a'</span>)</span><br><span class="line">    .update(&#123;</span><br><span class="line">      data:&#123;</span><br><span class="line">        price:<span class="number">100</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'修改成功'</span>,res)</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'失败'</span>,res)</span><br><span class="line">    &#125;)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="remove"   >
+          <a href="#remove" class="heading-link"><i class="fas fa-link"></i></a>remove</h3>
+      <figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">remove()&#123;</span><br><span class="line"> wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line"> .doc(<span class="string">'2d44d6c26153cdab103b75d66c78279a'</span>)</span><br><span class="line"> .remove()</span><br><span class="line"> .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'删除成功'</span>,res)</span><br><span class="line"> &#125;)</span><br><span class="line"> .catch(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'失败'</span>,res)</span><br><span class="line"> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="点击获得信息data"   >
+          <a href="#点击获得信息data" class="heading-link"><i class="fas fa-link"></i></a>点击获得信息data-</h3>
+      <figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;list&#125;&#125;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">bindtap</span>=<span class="string">"getdetail"</span> <span class="attr">data-name</span>=<span class="string">"&#123;&#123;item.name&#125;&#125;"</span>&gt;</span>商品名：&#123;&#123;item.name&#125;&#125;,价格：&#123;&#123;item.price&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getdetail(e)&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'点击跳转详情页'</span>,e.currentTarget.dataset.name)</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="跳转携带数据"   >
+          <a href="#跳转携带数据" class="heading-link"><i class="fas fa-link"></i></a>跳转携带数据</h3>
+      <p><span class="exturl"><a class="exturl__link"   href="https://xiaoshitou.blog.csdn.net/article/details/112391688"  target="_blank" rel="noopener">参考笔记</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/shujuku/shujuku.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;list&#125;&#125;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">bindtap</span>=<span class="string">"getdetail"</span> <span class="attr">data-id</span>=<span class="string">"&#123;&#123;item._id&#125;&#125;"</span>&gt;</span>商品名：&#123;&#123;item.name&#125;&#125;,价格：&#123;&#123;item.price&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getdetail(e)&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'点击跳转详情页'</span>,e.currentTarget.dataset.id)</span><br><span class="line">     wx.navigateTo(&#123;</span><br><span class="line">       url: <span class="string">'/pages/index/index?id='</span>+e.currentTarget.dataset.id,</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></div></figure>
+
+
+
+<p>跳转的页面</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">onLoad(options)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'列表携带的值'</span>,options)</span><br><span class="line">    <span class="keyword">var</span> id=options.id</span><br><span class="line">        wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">        .doc(id)</span><br><span class="line">        .get()</span><br><span class="line">        .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'查询单条数据成功'</span>,res.data)</span><br><span class="line">          <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">            good:res.data</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'失败'</span>,res)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+
+
+        <h3 id="添加商品"   >
+          <a href="#添加商品" class="heading-link"><i class="fas fa-link"></i></a>添加商品</h3>
+      <figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入商品名称</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">bindinput</span>=<span class="string">"getname"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line">输入商品价格</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">bindinput</span>=<span class="string">"getprice"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"add"</span> <span class="attr">type</span>=<span class="string">"primary"</span>&gt;</span>添加商品<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/shujuku/shujuku.js</span></span><br><span class="line"><span class="keyword">let</span> name=<span class="string">''</span></span><br><span class="line"><span class="keyword">let</span> price=<span class="string">''</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data:&#123;</span><br><span class="line">      list:[],</span><br><span class="line">      good:&#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad()&#123;</span><br><span class="line">      <span class="keyword">this</span>.getthis()</span><br><span class="line">      </span><br><span class="line">      &#125; ,</span><br><span class="line">   getdetail(e)&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'点击跳转详情页'</span>,e.currentTarget.dataset.id)</span><br><span class="line">     wx.navigateTo(&#123;</span><br><span class="line">       url: <span class="string">'/pages/index/index?id='</span>+e.currentTarget.dataset.id,</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125; ,</span><br><span class="line">   getthis()&#123;</span><br><span class="line"><span class="comment">//es6的简结写法</span></span><br><span class="line">      wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">      <span class="comment">// .where(&#123;//条件查询</span></span><br><span class="line">      <span class="comment">//   name:'苹果'</span></span><br><span class="line">      <span class="comment">// &#125;)</span></span><br><span class="line">      .get()</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'2成功'</span>,res)</span><br><span class="line">          <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">            list:res.data</span><br><span class="line">          &#125;)</span><br><span class="line">         &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'2失败'</span>,err)</span><br><span class="line">        &#125;)</span><br><span class="line">   &#125;,</span><br><span class="line">   getname(e)&#123;</span><br><span class="line">    name=e.detail.value</span><br><span class="line">    <span class="comment">//  console.log(name)</span></span><br><span class="line">   &#125;,</span><br><span class="line">   getprice(e)&#123;</span><br><span class="line">     price=e.detail.value</span><br><span class="line">    <span class="comment">// console.log(price)</span></span><br><span class="line">  &#125;,</span><br><span class="line">  add()&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'商品名'</span>,name)</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'商品价格'</span>,price)</span><br><span class="line">     <span class="keyword">if</span>(name==<span class="string">''</span>)&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'商品名为空'</span>)</span><br><span class="line">       wx.showToast(&#123;</span><br><span class="line">         icon:<span class="string">'none'</span>,</span><br><span class="line">         title: <span class="string">'商品名空'</span>,</span><br><span class="line">       &#125;)</span><br><span class="line">     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(price==<span class="string">''</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'价格为空'</span>)</span><br><span class="line">      wx.showToast(&#123;</span><br><span class="line">        icon:<span class="string">'none'</span>,</span><br><span class="line">        title: <span class="string">'价格空'</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     <span class="comment">//添加操作</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'可以进行添加操作'</span>)</span><br><span class="line">  wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">  .add(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">      name:name,</span><br><span class="line">      price:price</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'添加成功'</span>)</span><br><span class="line">    <span class="keyword">this</span>.getthis()</span><br><span class="line">&#125;) </span><br><span class="line">  .catch(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'添加失败'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="更新商品"   >
+          <a href="#更新商品" class="heading-link"><i class="fas fa-link"></i></a>更新商品</h3>
+      <figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line"> 商品名：&#123;&#123;good.name&#125;&#125;,价格：&#123;&#123;good.price&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">更新商品价格</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">bindinput</span>=<span class="string">"getPrice"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">bindtap</span>=<span class="string">"update"</span>&gt;</span>更新商品<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> price = <span class="string">''</span></span><br><span class="line"><span class="keyword">var</span> id = <span class="string">""</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    list: [],</span><br><span class="line">    good: &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad(options) &#123;</span><br><span class="line">    id = options.id</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'列表携带的值'</span>, options)</span><br><span class="line">    <span class="keyword">this</span>.getthis()</span><br><span class="line">  &#125;,</span><br><span class="line">  getthis() &#123;</span><br><span class="line">    wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">      .doc(id)</span><br><span class="line">      .get()</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'查询单条数据成功'</span>, res.data)</span><br><span class="line">        <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">          good: res.data</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'失败'</span>, res)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  getPrice(e) &#123;</span><br><span class="line">    price = e.detail.value</span><br><span class="line">  &#125;,</span><br><span class="line">  update() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'更新成功'</span>, price)</span><br><span class="line">    <span class="keyword">if</span> (price == <span class="string">''</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'价格为空'</span>)</span><br><span class="line">      wx.showToast(&#123;</span><br><span class="line">        icon: <span class="string">'none'</span>,</span><br><span class="line">        title: <span class="string">'价格空'</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">        .doc(id)</span><br><span class="line">        .update(&#123;</span><br><span class="line">          data: &#123;</span><br><span class="line">            price: price</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'更新成功'</span>, res)</span><br><span class="line">          <span class="keyword">this</span>.getthis()</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'更新失败'</span>, res)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+
+<p><strong>可以在数据库手动添加_openid来更改更新权限</strong></p>
+
+        <h3 id="删除操作"   >
+          <a href="#删除操作" class="heading-link"><i class="fas fa-link"></i></a>删除操作</h3>
+      <figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line"> 商品名：&#123;&#123;good.name&#125;&#125;,价格：&#123;&#123;good.price&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">更新商品价格</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">bindinput</span>=<span class="string">"getPrice"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">bindtap</span>=<span class="string">"update"</span>&gt;</span>更新商品<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">bindtap</span>=<span class="string">"rem"</span>&gt;</span>删除商品<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> price = <span class="string">''</span></span><br><span class="line"><span class="keyword">var</span> id = <span class="string">""</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    list: [],</span><br><span class="line">    good: &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad(options) &#123;</span><br><span class="line">    id = options.id</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'列表携带的值'</span>, options)</span><br><span class="line">    <span class="keyword">this</span>.getthis()</span><br><span class="line">  &#125;,</span><br><span class="line">  getthis() &#123;</span><br><span class="line">    wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">      .doc(id)</span><br><span class="line">      .get()</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'查询单条数据成功'</span>, res.data)</span><br><span class="line">        <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">          good: res.data</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'失败'</span>, res)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  getPrice(e) &#123;</span><br><span class="line">    price = e.detail.value</span><br><span class="line">  &#125;,</span><br><span class="line">  update() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'更新成功'</span>, price)</span><br><span class="line">    <span class="keyword">if</span> (price == <span class="string">''</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'价格为空'</span>)</span><br><span class="line">      wx.showToast(&#123;</span><br><span class="line">        icon: <span class="string">'none'</span>,</span><br><span class="line">        title: <span class="string">'价格空'</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">        .doc(id)</span><br><span class="line">        .update(&#123;</span><br><span class="line">          data: &#123;</span><br><span class="line">            price: price</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'更新成功'</span>, res)</span><br><span class="line">          <span class="keyword">this</span>.getthis()</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'更新失败'</span>, res)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">  rem()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'点击删除'</span>,id)</span><br><span class="line">    wx.showModal(&#123;</span><br><span class="line">      title:<span class="string">'是否确定删除'</span>,</span><br><span class="line">      content:<span class="string">'真的删除吗'</span>,</span><br><span class="line">      success(res)&#123;</span><br><span class="line">        <span class="keyword">if</span>(res.confirm==<span class="literal">true</span>)&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'用户点击了确定'</span>)</span><br><span class="line">          wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">          .doc(id)</span><br><span class="line">          .remove()</span><br><span class="line">          .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'删除成功'</span>)</span><br><span class="line">            wx.navigateTo(&#123;</span><br><span class="line">              url: <span class="string">'/pages/shujuku/shujuku'</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;) </span><br><span class="line">         .catch(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'删除失败'</span>)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(res.cancel==<span class="literal">true</span>)&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'用户点击了取消'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">   </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="排序"   >
+          <a href="#排序" class="heading-link"><i class="fas fa-link"></i></a>排序</h2>
+      <figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/shujuku/shujuku.wxml--&gt;</span></span><br><span class="line">输入商品名称</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">bindinput</span>=<span class="string">"getname"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line">输入商品价格</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">bindinput</span>=<span class="string">"getprice"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"add"</span> <span class="attr">type</span>=<span class="string">"primary"</span>&gt;</span>添加商品<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;list&#125;&#125;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">bindtap</span>=<span class="string">"getdetail"</span> <span class="attr">data-id</span>=<span class="string">"&#123;&#123;item._id&#125;&#125;"</span>&gt;</span>商品名：&#123;&#123;item.name&#125;&#125;,价格：&#123;&#123;item.price&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">bindtap</span>=<span class="string">"paixu1"</span>&gt;</span>升序商品<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">bindtap</span>=<span class="string">"paixu2"</span>&gt;</span>降序商品<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/shujuku/shujuku.js</span></span><br><span class="line"><span class="keyword">let</span> name=<span class="string">''</span></span><br><span class="line"><span class="keyword">let</span> price=<span class="string">''</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data:&#123;</span><br><span class="line">      list:[],</span><br><span class="line">      good:&#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad()&#123;</span><br><span class="line">      <span class="keyword">this</span>.getthis()</span><br><span class="line">      </span><br><span class="line">      &#125; ,</span><br><span class="line">   getdetail(e)&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'点击跳转详情页'</span>,e.currentTarget.dataset.id)</span><br><span class="line">     wx.navigateTo(&#123;</span><br><span class="line">       url: <span class="string">'/pages/index/index?id='</span>+e.currentTarget.dataset.id,</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125; ,</span><br><span class="line">   getthis()&#123;</span><br><span class="line"><span class="comment">//es6的简结写法</span></span><br><span class="line">      wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">      <span class="comment">// .where(&#123;//条件查询</span></span><br><span class="line">      <span class="comment">//   name:'苹果'</span></span><br><span class="line">      <span class="comment">// &#125;)</span></span><br><span class="line">      .get()</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'2成功'</span>,res)</span><br><span class="line">          <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">            list:res.data</span><br><span class="line">          &#125;)</span><br><span class="line">         &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'2失败'</span>,err)</span><br><span class="line">        &#125;)</span><br><span class="line">   &#125;,</span><br><span class="line">   getname(e)&#123;</span><br><span class="line">    name=e.detail.value</span><br><span class="line">    <span class="comment">//  console.log(name)</span></span><br><span class="line">   &#125;,</span><br><span class="line">   getprice(e)&#123;</span><br><span class="line">     price=e.detail.value</span><br><span class="line">    <span class="comment">// console.log(price)</span></span><br><span class="line">  &#125;,</span><br><span class="line">  add()&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'商品名'</span>,name)</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'商品价格'</span>,price)</span><br><span class="line">     <span class="keyword">if</span>(name==<span class="string">''</span>)&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'商品名为空'</span>)</span><br><span class="line">       wx.showToast(&#123;</span><br><span class="line">         icon:<span class="string">'none'</span>,</span><br><span class="line">         title: <span class="string">'商品名空'</span>,</span><br><span class="line">       &#125;)</span><br><span class="line">     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(price==<span class="string">''</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'价格为空'</span>)</span><br><span class="line">      wx.showToast(&#123;</span><br><span class="line">        icon:<span class="string">'none'</span>,</span><br><span class="line">        title: <span class="string">'价格空'</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     <span class="comment">//添加操作</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'可以进行添加操作'</span>)</span><br><span class="line">  wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">  .add(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">      name:name,</span><br><span class="line">      price:paeseInt(price) </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'添加成功'</span>)</span><br><span class="line">    <span class="keyword">this</span>.getthis()</span><br><span class="line">&#125;) </span><br><span class="line">  .catch(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'添加失败'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">  &#125;,</span><br><span class="line">  paixu1()&#123;</span><br><span class="line">    wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">    .orderBy(<span class="string">"price"</span>,<span class="string">'asc'</span>)</span><br><span class="line">    .get()</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'2成功'</span>,res)</span><br><span class="line">        <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">          list:res.data</span><br><span class="line">        &#125;)</span><br><span class="line">       &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'2失败'</span>,err)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  paixu2()&#123;</span><br><span class="line">    wx.cloud.database().collection(<span class="string">'goods'</span>)</span><br><span class="line">    .orderBy(<span class="string">"price"</span>,<span class="string">'desc'</span>)</span><br><span class="line">    .get()</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'2成功'</span>,res)</span><br><span class="line">        <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">          list:res.data</span><br><span class="line">        &#125;)</span><br><span class="line">       &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'2失败'</span>,err)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="分页skip"   >
+          <a href="#分页skip" class="heading-link"><i class="fas fa-link"></i></a>分页skip</h2>
+      <figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  onLoad()&#123;</span><br><span class="line">    wx.cloud.database().collection(<span class="string">'num'</span>)</span><br><span class="line">    .limit(<span class="number">1</span>)</span><br><span class="line">    .skip(<span class="number">0</span>)</span><br><span class="line">    .get()</span><br><span class="line">    .then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'请求成功'</span>,res)</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'请求是吧'</span>,res)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="Command数据库操作符"   >
+          <a href="#Command数据库操作符" class="heading-link"><i class="fas fa-link"></i></a>Command数据库操作符</h2>
+      <p>我门上面学完了数据库的增删改查，但是这些都是最基础最简单的操作，如果我们想实现复杂的数据查询操作，该怎么办呢<br>比如</p>
+<p>查询价格大于100的商品？<br>查询年龄小于18岁的学生？<br>如何同时修改多条数据？<br>如何同时删除多条数据？<br>我们如果想实现上面这些复杂的操作，就需要用到数据库里的 Command数据库操作符，就是下面这位</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/1.png" class="" title="图片">
+
+
+        <h3 id="gt查询大于指定值的数据"   >
+          <a href="#gt查询大于指定值的数据" class="heading-link"><i class="fas fa-link"></i></a>gt查询大于指定值的数据</h3>
+      <p>比如查询价格大于5的所有商品</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/2.png" class="" title="图片">
+
+
+        <h3 id="gte查询大于等于指定值的数据"   >
+          <a href="#gte查询大于等于指定值的数据" class="heading-link"><i class="fas fa-link"></i></a>gte查询大于等于指定值的数据</h3>
+      <p>比如查询大于等于5元的商品</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/3.png" class="" title="图片">
+
+
+        <h3 id="lt查询小于指定数值的数据"   >
+          <a href="#lt查询小于指定数值的数据" class="heading-link"><i class="fas fa-link"></i></a>lt查询小于指定数值的数据</h3>
+      <p>比如查询价格小于5的所有商品</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/4.png" class="" title="图片">
+
+
+        <h3 id="lte查询小于等于指定数值的数据"   >
+          <a href="#lte查询小于等于指定数值的数据" class="heading-link"><i class="fas fa-link"></i></a>lte查询小于等于指定数值的数据</h3>
+      <p>比如查询价格小于等于5元的所有商品</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/5.png" class="" title="图片">
+
+
+        <h3 id="and同时满足多个条件的查询"   >
+          <a href="#and同时满足多个条件的查询" class="heading-link"><i class="fas fa-link"></i></a>and同时满足多个条件的查询</h3>
+      <p>比如查询价格大于5小于10元的所有商品</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/6.png" class="" title="图片">
+
+
+        <h2 id="云开发-云函数"   >
+          <a href="#云开发-云函数" class="heading-link"><i class="fas fa-link"></i></a>云开发~云函数</h2>
+      
+        <h3 id="认识云函数"   >
+          <a href="#认识云函数" class="heading-link"><i class="fas fa-link"></i></a>认识云函数</h3>
+      <p>官方文档：<span class="exturl"><a class="exturl__link"   href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/functions.html"  target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/functions.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>我们先来看下官方给出的云函数简介</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/7.png" class="" title="图片">
+
+<p>其实通俗来讲，云函数也是运行在服务器上的，只不过和我们传统开发语言相比。微信官方为我们提供的傻瓜式的一键部署。也就是说你只需要把心思花在业务逻辑代码的编写上即可。无需关心写好如何部署，无需关心安全问题，无需关心鉴权问题。</p>
+
+        <h3 id="云函数获取openid"   >
+          <a href="#云函数获取openid" class="heading-link"><i class="fas fa-link"></i></a>云函数获取openid</h3>
+      <p>用云函数的话，只需要3步</p>
+<ul>
+<li>1，编写云函数</li>
+<li>2，一键部署云函数</li>
+<li>3，调用云函数</li>
+</ul>
+<p>来看下云函数代码，只需要10行代码，即可轻松搞定</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/8.png" class="" title="图片">
+
+
+        <h3 id="云函数的优势"   >
+          <a href="#云函数的优势" class="heading-link"><i class="fas fa-link"></i></a>云函数的优势</h3>
+      <p>我们用云函数和上一章的云数据库进行下对比</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>云函数</th>
+<th>云数据库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>返回数据上限</td>
+<td>100条</td>
+<td>20条</td>
+</tr>
+<tr>
+<td>更新数据</td>
+<td>都可以更新</td>
+<td>只有自己创建的才可以更新</td>
+</tr>
+<tr>
+<td>删除数据</td>
+<td>都可以删除</td>
+<td>只有自己创建的才可以删除</td>
+</tr>
+<tr>
+<td>运行环境</td>
+<td>运行在云端Node.js环境</td>
+<td>运行在小程序本地</td>
+</tr>
+<tr>
+<td>实现功能丰富度</td>
+<td>非常丰富</td>
+<td>只能实现数据库增删改查</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>来看下官方文档是如何描述云函数的<br>云函数属于管理端，在云函数中运行的代码拥有不受限的数据库读写权限和云文件读写权限。需特别注意，云函数运行环境即是管理端，与云函数中的传入的 openId 对应的微信用户是否是小程序的管理员 / 开发者无关。</li>
+</ul>
+
+        <h3 id="云函数调用演示"   >
+          <a href="#云函数调用演示" class="heading-link"><i class="fas fa-link"></i></a>云函数调用演示</h3>
+      <p>官方文档：<span class="exturl"><a class="exturl__link"   href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/functions/Cloud.callFunction.html"  target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/functions/Cloud.callFunction.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h4 id="初始化云函数的环境"   >
+          <a href="#初始化云函数的环境" class="heading-link"><i class="fas fa-link"></i></a>初始化云函数的环境</h4>
+      <ul>
+<li><p>1，创建一个文件夹cloud和pages平行</p>
+</li>
+<li><p>2，在project.config.json里面配置云函数所在目录为cloud<br>在project.config.json里面添加如下配置</p>
+</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/9.png" class="" title="图片">
+
+<p>然后点击保存，我们的cloud文件夹前面就有一个云朵</p>
+<ul>
+<li>就代表我们云函数初始化成功啦。</li>
+<li>新一个云函数</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/10.png" class="" title="图片">
+
+
+        <h4 id="云函数获取openid-1"   >
+          <a href="#云函数获取openid-1" class="heading-link"><i class="fas fa-link"></i></a>云函数获取openid</h4>
+      <p>调用云函数有两种写法</p>
+<p>onLoad</p>
+<ul>
+<li>1，传统的success和fail</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/11.png" class="" title="图片">
+
+<ul>
+<li>2，用promise写法then和catch</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/12.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/13.png" class="" title="图片">
+
+
+        <h4 id="数据的导入和导出"   >
+          <a href="#数据的导入和导出" class="heading-link"><i class="fas fa-link"></i></a>数据的导入和导出</h4>
+      <ul>
+<li>数据导出，做数据备份</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/14.png" class="" title="图片">
+
+<ul>
+<li>数据导入，为了快速的大量的创建一些数据。</li>
+</ul>
+
+        <h4 id="云函数获取数据"   >
+          <a href="#云函数获取数据" class="heading-link"><i class="fas fa-link"></i></a>云函数获取数据</h4>
+      <p>注意：云函数只要有变动，就要重新部署，否则云函数不生效。</p>
+<p>遇到了一个问题，如下</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/15.png" class="" title="图片">
+
+<p>出现原因：如果你有两个云开发环境，偶尔会出现上图所示的问题。<br>解决问题：有两种</p>
+<ul>
+<li>1，在云函数里指定你要使用那个云开发环境</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/16.png" class="" title="图片">
+
+<ul>
+<li>2，使用DYNAMIC_CURRENT_ENV常量 （提倡使用这个）</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/17.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/18.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/19.png" class="" title="图片">
+
+
+        <h4 id="云函数修改数据"   >
+          <a href="#云函数修改数据" class="heading-link"><i class="fas fa-link"></i></a>云函数修改数据</h4>
+      <p>本地小程序直接调用数据库修改会有问题</p>
+<ul>
+<li><p>只能修改自己创建的数据，别人创建的数据，就没有办法修改了。</p>
+</li>
+<li><p>如何解决呢？ 用云函数来修改就可以解决这个问题啦。</p>
+</li>
+<li><p>1，先创建云函数update0129</p>
+</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/20.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/22.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/24.png" class="" title="图片">
+
+<p>2,调用云函数就行修改</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/21.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/23.png" class="" title="图片">
+
+
+        <h4 id="云函数删除数据"   >
+          <a href="#云函数删除数据" class="heading-link"><i class="fas fa-link"></i></a>云函数删除数据</h4>
+      <ul>
+<li>1,创建一个删除商品的云函数remove0129</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/25.png" class="" title="图片">
+
+<ul>
+<li>2,调用这个云函数进行删除操作</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/26.png" class="" title="图片">
+
+
+        <h4 id="提交数据到云函数"   >
+          <a href="#提交数据到云函数" class="heading-link"><i class="fas fa-link"></i></a>提交数据到云函数</h4>
+      <ul>
+<li>1，创建云函数，并部署</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/27.png" class="" title="图片">
+
+<ul>
+<li>2，调用云函数</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/28.png" class="" title="图片">
+
+
+        <h2 id="云开发-云存储"   >
+          <a href="#云开发-云存储" class="heading-link"><i class="fas fa-link"></i></a>云开发~云存储</h2>
+      <p>首先来看下官方对云存储的介绍：<br>官方文档：<span class="exturl"><a class="exturl__link"   href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/storage.html"  target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/storage.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/29.png" class="" title="图片">
+
+<p>说白了，云存储就是可以用来存储视频，音频，图片，文件的一个云存储空间。如果你的小程序需要用到视频播放，音频播放，图片展示，文件上传与下载功能，就可以用到我们的云存储了。</p>
+<ul>
+<li>使用云存储来存储文件时，文件名的命名有一些规则，建议看一下。</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/30.png" class="" title="图片">
+
+
+        <h3 id="云开发控制台管理文件"   >
+          <a href="#云开发控制台管理文件" class="heading-link"><i class="fas fa-link"></i></a>云开发控制台管理文件</h3>
+      <p>控制台也可以很方便的管理文件。</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/31.png" class="" title="图片">
+
+
+        <h3 id="上传图片到云存储"   >
+          <a href="#上传图片到云存储" class="heading-link"><i class="fas fa-link"></i></a>上传图片到云存储</h3>
+      <p>我们上传图片之前需要先选择图片，所以这里用到一个图片选择的功能</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/32.png" class="" title="图片">
+
+<p>对应的官方文档：<span class="exturl"><a class="exturl__link"   href="https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.chooseImage.html"  target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.chooseImage.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/33.png" class="" title="图片">
+
+<p>然后调用文件上传的api接口即可</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/34.png" class="" title="图片">
+
+<p>官方文档：<span class="exturl"><a class="exturl__link"   href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/storage/uploadFile/client.uploadFile.html"  target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/storage/uploadFile/client.uploadFile.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/35.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/36.png" class="" title="图片">
+
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/yuncunchu/yuncunchu.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  chooseImg()&#123;</span><br><span class="line">    <span class="keyword">let</span> that=<span class="keyword">this</span></span><br><span class="line">    wx.chooseImage(&#123;</span><br><span class="line">      count: <span class="number">1</span>,</span><br><span class="line">      sizeType:[<span class="string">'original'</span>,<span class="string">'compressed'</span>],</span><br><span class="line">      sourceType:[<span class="string">'album'</span>,<span class="string">'camera'</span>],</span><br><span class="line">      success(res)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">        that.uploadImg(res.tempFilePaths[<span class="number">0</span>])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  uploadImg(temFile)&#123;</span><br><span class="line">    wx.cloud.uploadFile(&#123;</span><br><span class="line">      cloudPath:<span class="string">'你好.jpg'</span>,</span><br><span class="line">      filePath:temFile,</span><br><span class="line">      succes:<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'上传成功'</span>,res)</span><br><span class="line">      &#125;,</span><br><span class="line">      fail(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'上传失败'</span>,err)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="给商品列表加商品图片"   >
+          <a href="#给商品列表加商品图片" class="heading-link"><i class="fas fa-link"></i></a>给商品列表加商品图片</h3>
+      <p>我们既然已经学完图片上传功能了，那么我们就可以改造下我们之前的商品列表了，给我们的商品列表添加商品图片。</p>
+<p>先给数据库加上img字段 ，将云存储的url复制到里面 </p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/37.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/38.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/39.png" class="" title="图片">
+
+
+
+
+        <h3 id="显示图片-商品详情页"   >
+          <a href="#显示图片-商品详情页" class="heading-link"><i class="fas fa-link"></i></a>显示图片 商品详情页</h3>
+      <img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/40.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/41.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/42.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/43.png" class="" title="图片">
+
+
+
+
+        <h3 id="上传视频"   >
+          <a href="#上传视频" class="heading-link"><i class="fas fa-link"></i></a>上传视频</h3>
+      <img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/44.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/45.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/46.png" class="" title="图片">
+
+
+
+
+        <h3 id="显示上传的文件"   >
+          <a href="#显示上传的文件" class="heading-link"><i class="fas fa-link"></i></a>显示上传的文件</h3>
+      <img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/47.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/48.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/49.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/50.png" class="" title="图片">
+
+
+
+
+
+
+        <h3 id="上传文件"   >
+          <a href="#上传文件" class="heading-link"><i class="fas fa-link"></i></a>上传文件</h3>
+      <img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/51.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/52.png" class="" title="图片">
+
+
+
+
+        <h3 id="下载文件"   >
+          <a href="#下载文件" class="heading-link"><i class="fas fa-link"></i></a>下载文件</h3>
+      <img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/53.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/54.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/55.png" class="" title="图片">
+
+
+        <h3 id="打开下载文件"   >
+          <a href="#打开下载文件" class="heading-link"><i class="fas fa-link"></i></a>打开下载文件</h3>
+      <img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/56.png" class="" title="图片">
+
+
+        <h2 id="列表的下拉刷新"   >
+          <a href="#列表的下拉刷新" class="heading-link"><i class="fas fa-link"></i></a>列表的下拉刷新</h2>
+      
+        <h3 id="开启页面下拉刷新"   >
+          <a href="#开启页面下拉刷新" class="heading-link"><i class="fas fa-link"></i></a>开启页面下拉刷新</h3>
+      <p>我们需要在app.json获取页面对应的json里设置enablePullDownRefresh属性为true来开启下拉刷新。</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/57.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/58.png" class="" title="图片">
+
+<p>由于我们的刷新动画默认是白色圆点，所以还要在json里设置页面背景色才可以看到动画。</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/59.png" class="" title="图片">
+
+
+        <h3 id="在Page的onPullDownRefresh里监听刷新"   >
+          <a href="#在Page的onPullDownRefresh里监听刷新" class="heading-link"><i class="fas fa-link"></i></a>在Page的onPullDownRefresh里监听刷新</h3>
+      <img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/60.png" class="" title="图片">
+
+<p>在page里的onPullDownRefresh方法里监听下拉刷新</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/61.png" class="" title="图片">
+
+
+        <h3 id="用户下拉刷新时请求最新数据"   >
+          <a href="#用户下拉刷新时请求最新数据" class="heading-link"><i class="fas fa-link"></i></a>用户下拉刷新时请求最新数据</h3>
+      <img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/62.png" class="" title="图片">
+
+
+        <h3 id="数据请求成功后停止刷新"   >
+          <a href="#数据请求成功后停止刷新" class="heading-link"><i class="fas fa-link"></i></a>数据请求成功后停止刷新</h3>
+      <p>我们在下拉刷新时，刷新动画一般很久才结束，正常情况下应该是数据请求成功后就结束刷新动画。所以我们通过wx.stopPullDownRefresh()方法来结束刷新动画。</p>
+<p>官方文档：<span class="exturl"><a class="exturl__link"   href="https://developers.weixin.qq.com/miniprogram/dev/api/ui/pull-down-refresh/wx.startPullDownRefresh.html"  target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/api/ui/pull-down-refresh/wx.startPullDownRefresh.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/63.png" class="" title="图片">
+
+<p>代码示例如下</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/64.png" class="" title="图片">
+
+
+        <h2 id="列表的分页加载"   >
+          <a href="#列表的分页加载" class="heading-link"><i class="fas fa-link"></i></a>列表的分页加载</h2>
+      
+        <h3 id="小程序数据库每次最多20条"   >
+          <a href="#小程序数据库每次最多20条" class="heading-link"><i class="fas fa-link"></i></a>小程序数据库每次最多20条</h3>
+      <p>小程序数据库api和云函数调用数据的限制<br>小程序端直接调用云数据库时，每次最多可以获取20条，云函数里调用云数据库时每次最多获取100条。所以我们数据多的时候要做分页加载。</p>
+
+        <h3 id="分页加载的核心方法"   >
+          <a href="#分页加载的核心方法" class="heading-link"><i class="fas fa-link"></i></a>分页加载的核心方法</h3>
+      <p>我们做分页加载时，主要用到了skip和limit方法，对应的官方文档如下</p>
+<ul>
+<li>skip：每页加载多少条</li>
+</ul>
+<p><span class="exturl"><a class="exturl__link"   href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/database/collection/Collection.skip.html"  target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/database/collection/Collection.skip.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<ul>
+<li>limit: 加载第几页的数据<span class="exturl"><a class="exturl__link"   href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/database/collection/Collection.limit.html"  target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/database/collection/Collection.limit.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ul>
+<p>其实这个skip和limit我在数据库的那一节有做初步讲解，这一节我们就借助具体分页加载的案例来做综合讲解</p>
+
+        <h3 id="导入108条数据"   >
+          <a href="#导入108条数据" class="heading-link"><i class="fas fa-link"></i></a>导入108条数据</h3>
+      
+        <h3 id="下载数据源"   >
+          <a href="#下载数据源" class="heading-link"><i class="fas fa-link"></i></a>下载数据源</h3>
+      <p>把数据表(集合)的权限改为所有用户可读，仅创建者可读写。</p>
+
+        <h3 id="上拉加载更多监听"   >
+          <a href="#上拉加载更多监听" class="heading-link"><i class="fas fa-link"></i></a>上拉加载更多监听</h3>
+      <p>我们的列表滑动到最后一个数据时，会执行下面的方法</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/65.png" class="" title="图片">
+
+<p>所以我们的分页加载要在onReachBottom里做。</p>
+
+        <h3 id="数据库分页加载代码实现"   >
+          <a href="#数据库分页加载代码实现" class="heading-link"><i class="fas fa-link"></i></a>数据库分页加载代码实现</h3>
+      <p>直接调用数据库每次最多只能加载20条数据</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/66.png" class="" title="图片">
+
+<p>wxml里只做简单的列表数据显示就行了</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/67.png" class="" title="图片">
+
+<p>wxss做个简单的样式</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/68.png" class="" title="图片">
+
+<p>对应的效果如下</p>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/69.png" class="" title="图片">
+
+
+        <h3 id="没有更多数据时的友好提示"   >
+          <a href="#没有更多数据时的友好提示" class="heading-link"><i class="fas fa-link"></i></a>没有更多数据时的友好提示</h3>
+      <img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/70.png" class="" title="图片">
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/71.png" class="" title="图片">
+
+
+        <h3 id="加载中和加载完成的友好提示"   >
+          <a href="#加载中和加载完成的友好提示" class="heading-link"><i class="fas fa-link"></i></a>加载中和加载完成的友好提示</h3>
+      <ul>
+<li>加载中</li>
+</ul>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.showLoading(&#123;</span><br><span class="line">     title: <span class="string">'加载中...'</span>,</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></div></figure>
+
+<ul>
+<li>隐藏加载</li>
+</ul>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wx.hideLoading()</span><br></pre></td></tr></table></div></figure>
+
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/72.png" class="" title="图片">
+
+
+        <h3 id="通过云函数实现分页加载"   >
+          <a href="#通过云函数实现分页加载" class="heading-link"><i class="fas fa-link"></i></a>通过云函数实现分页加载</h3>
+      <p>通过云函数调用数据库，每次最多可以加载100条数据.</p>
+<ul>
+<li>如果每页20条以内，不建议用云函数</li>
+<li>如果分页的时候，每页大于20条，就用云函数。</li>
+</ul>
+<img src="/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/73.png" class="" title="图片"></div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://kingsirz123.github.io">源一</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/">https://kingsirz123.github.io/2021/09/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2021/10/06/LINUX/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">LINUX</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2021/09/21/JDBC/"><span class="paginator-prev__text">JDBC</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#微信小程序云开发"><span class="toc-number">1.</span> <span class="toc-text">
+          微信小程序云开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#云数据库操作"><span class="toc-number">1.1.</span> <span class="toc-text">
+          云数据库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库：查询"><span class="toc-number">1.1.1.</span> <span class="toc-text">
+          数据库：查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件查询where"><span class="toc-number">1.1.2.</span> <span class="toc-text">
+          条件查询where</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#add"><span class="toc-number">1.1.3.</span> <span class="toc-text">
+          add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#update"><span class="toc-number">1.1.4.</span> <span class="toc-text">
+          update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#remove"><span class="toc-number">1.1.5.</span> <span class="toc-text">
+          remove</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点击获得信息data"><span class="toc-number">1.1.6.</span> <span class="toc-text">
+          点击获得信息data-</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跳转携带数据"><span class="toc-number">1.1.7.</span> <span class="toc-text">
+          跳转携带数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加商品"><span class="toc-number">1.1.8.</span> <span class="toc-text">
+          添加商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新商品"><span class="toc-number">1.1.9.</span> <span class="toc-text">
+          更新商品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除操作"><span class="toc-number">1.1.10.</span> <span class="toc-text">
+          删除操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.2.</span> <span class="toc-text">
+          排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分页skip"><span class="toc-number">1.3.</span> <span class="toc-text">
+          分页skip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command数据库操作符"><span class="toc-number">1.4.</span> <span class="toc-text">
+          Command数据库操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gt查询大于指定值的数据"><span class="toc-number">1.4.1.</span> <span class="toc-text">
+          gt查询大于指定值的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gte查询大于等于指定值的数据"><span class="toc-number">1.4.2.</span> <span class="toc-text">
+          gte查询大于等于指定值的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt查询小于指定数值的数据"><span class="toc-number">1.4.3.</span> <span class="toc-text">
+          lt查询小于指定数值的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lte查询小于等于指定数值的数据"><span class="toc-number">1.4.4.</span> <span class="toc-text">
+          lte查询小于等于指定数值的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#and同时满足多个条件的查询"><span class="toc-number">1.4.5.</span> <span class="toc-text">
+          and同时满足多个条件的查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#云开发-云函数"><span class="toc-number">1.5.</span> <span class="toc-text">
+          云开发~云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识云函数"><span class="toc-number">1.5.1.</span> <span class="toc-text">
+          认识云函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云函数获取openid"><span class="toc-number">1.5.2.</span> <span class="toc-text">
+          云函数获取openid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云函数的优势"><span class="toc-number">1.5.3.</span> <span class="toc-text">
+          云函数的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#云函数调用演示"><span class="toc-number">1.5.4.</span> <span class="toc-text">
+          云函数调用演示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化云函数的环境"><span class="toc-number">1.5.4.1.</span> <span class="toc-text">
+          初始化云函数的环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#云函数获取openid-1"><span class="toc-number">1.5.4.2.</span> <span class="toc-text">
+          云函数获取openid</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据的导入和导出"><span class="toc-number">1.5.4.3.</span> <span class="toc-text">
+          数据的导入和导出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#云函数获取数据"><span class="toc-number">1.5.4.4.</span> <span class="toc-text">
+          云函数获取数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#云函数修改数据"><span class="toc-number">1.5.4.5.</span> <span class="toc-text">
+          云函数修改数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#云函数删除数据"><span class="toc-number">1.5.4.6.</span> <span class="toc-text">
+          云函数删除数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提交数据到云函数"><span class="toc-number">1.5.4.7.</span> <span class="toc-text">
+          提交数据到云函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#云开发-云存储"><span class="toc-number">1.6.</span> <span class="toc-text">
+          云开发~云存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#云开发控制台管理文件"><span class="toc-number">1.6.1.</span> <span class="toc-text">
+          云开发控制台管理文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传图片到云存储"><span class="toc-number">1.6.2.</span> <span class="toc-text">
+          上传图片到云存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#给商品列表加商品图片"><span class="toc-number">1.6.3.</span> <span class="toc-text">
+          给商品列表加商品图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示图片-商品详情页"><span class="toc-number">1.6.4.</span> <span class="toc-text">
+          显示图片 商品详情页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传视频"><span class="toc-number">1.6.5.</span> <span class="toc-text">
+          上传视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示上传的文件"><span class="toc-number">1.6.6.</span> <span class="toc-text">
+          显示上传的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传文件"><span class="toc-number">1.6.7.</span> <span class="toc-text">
+          上传文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载文件"><span class="toc-number">1.6.8.</span> <span class="toc-text">
+          下载文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开下载文件"><span class="toc-number">1.6.9.</span> <span class="toc-text">
+          打开下载文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表的下拉刷新"><span class="toc-number">1.7.</span> <span class="toc-text">
+          列表的下拉刷新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启页面下拉刷新"><span class="toc-number">1.7.1.</span> <span class="toc-text">
+          开启页面下拉刷新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在Page的onPullDownRefresh里监听刷新"><span class="toc-number">1.7.2.</span> <span class="toc-text">
+          在Page的onPullDownRefresh里监听刷新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用户下拉刷新时请求最新数据"><span class="toc-number">1.7.3.</span> <span class="toc-text">
+          用户下拉刷新时请求最新数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据请求成功后停止刷新"><span class="toc-number">1.7.4.</span> <span class="toc-text">
+          数据请求成功后停止刷新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表的分页加载"><span class="toc-number">1.8.</span> <span class="toc-text">
+          列表的分页加载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#小程序数据库每次最多20条"><span class="toc-number">1.8.1.</span> <span class="toc-text">
+          小程序数据库每次最多20条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分页加载的核心方法"><span class="toc-number">1.8.2.</span> <span class="toc-text">
+          分页加载的核心方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入108条数据"><span class="toc-number">1.8.3.</span> <span class="toc-text">
+          导入108条数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载数据源"><span class="toc-number">1.8.4.</span> <span class="toc-text">
+          下载数据源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上拉加载更多监听"><span class="toc-number">1.8.5.</span> <span class="toc-text">
+          上拉加载更多监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库分页加载代码实现"><span class="toc-number">1.8.6.</span> <span class="toc-text">
+          数据库分页加载代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有更多数据时的友好提示"><span class="toc-number">1.8.7.</span> <span class="toc-text">
+          没有更多数据时的友好提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载中和加载完成的友好提示"><span class="toc-number">1.8.8.</span> <span class="toc-text">
+          加载中和加载完成的友好提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过云函数实现分页加载"><span class="toc-number">1.8.9.</span> <span class="toc-text">
+          通过云函数实现分页加载</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/3.jpeg" alt="avatar"></div><p class="sidebar-ov-author__text">一生中你唯一需要回头的时候，是为了看自己到底走了多远。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/KingSirZ123/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://plus.google.com/" target="_blank" rel="noopener" data-popover="Google" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-google"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://youtube.com/" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">69</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020.7.19~2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>你好世界</span></div><div><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

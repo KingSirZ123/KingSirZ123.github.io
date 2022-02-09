@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="Docker进阶                           Docker Compose                           简介       Docker DockerFile build run手动操作,单个容器! 微服务。100个微服务！依赖关系。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker进阶">
+<meta property="og:url" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/index.html">
+<meta property="og:site_name" content="源一先生">
+<meta property="og:description" content="Docker进阶                           Docker Compose                           简介       Docker DockerFile build run手动操作,单个容器! 微服务。100个微服务！依赖关系。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/1.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/2.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/3.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/4.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/5.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/6.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/7.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/8.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/9.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/10.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/11.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/12.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/13.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/14.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/15.png">
+<meta property="og:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/16.png">
+<meta property="article:published_time" content="2021-10-12T03:07:30.553Z">
+<meta property="article:modified_time" content="2021-10-13T08:32:27.710Z">
+<meta property="article:author" content="源一">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/1.png"><title>Docker进阶 | 源一先生</title><link ref="canonical" href="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">源一先生</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Docker进阶</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-10-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-10-13</span></span></div></header><div class="post-body">
+        <h1 id="Docker进阶"   >
+          <a href="#Docker进阶" class="heading-link"><i class="fas fa-link"></i></a>Docker进阶</h1>
+      
+        <h1 id="Docker-Compose"   >
+          <a href="#Docker-Compose" class="heading-link"><i class="fas fa-link"></i></a>Docker Compose</h1>
+      
+        <h2 id="简介"   >
+          <a href="#简介" class="heading-link"><i class="fas fa-link"></i></a>简介</h2>
+      <p>Docker</p>
+<p>DockerFile build run手动操作,单个容器!</p>
+<p>微服务。100个微服务！依赖关系。</p>
+<a id="more"></a>
+
+<p><strong>Docker Compose来轻松高效的管理容器。定义运行多个容器。</strong></p>
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/1.png" class="" title="图片">
+
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/2.png" class="" title="图片">
+
+<p>docker-compose up 100个服务。</p>
+<p>Compose :重要的概念。</p>
+<ul>
+<li><p>服务services, 容器。应用。(web, redis, mysql…)</p>
+</li>
+<li><p>项目project。一组关联的容器。博客。web、mysql, wp </p>
+</li>
+</ul>
+
+        <h2 id="安装"   >
+          <a href="#安装" class="heading-link"><i class="fas fa-link"></i></a>安装</h2>
+      <p>看官方文档</p>
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/3.png" class="" title="图片">
+
+<p><span class="exturl"><a class="exturl__link"   href="https://docs.docker.com/compose/gettingstarted/"  target="_blank" rel="noopener">安装文档</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/4.png" class="" title="图片">
+
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/5.png" class="" title="图片">
+
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/6.png" class="" title="图片">
+
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/7.png" class="" title="图片">
+
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/8.png" class="" title="图片">
+
+<p>默认的服务名    文件名服务名_num</p>
+<p>多个服务器。集群。A B_num副本数量</p>
+<p>服务redis服务=&gt; 4个副本。</p>
+<p>集群状态。服务都不可能只有一个运行实例。弹性、10 HA高并发。</p>
+<p>kubectl service负载均衡。</p>
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/9.png" class="" title="图片">
+
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/10.png" class="" title="图片">
+
+<p><strong>docker-compose</strong></p>
+<p><strong>以前都是单个docker run启动容器。</strong></p>
+<p><strong>docker-compose.通过docker-compose编写yaml配置文件、可以通过compose-键启动所有服务,停止。!</strong></p>
+
+        <h3 id="Docker小结"   >
+          <a href="#Docker小结" class="heading-link"><i class="fas fa-link"></i></a>Docker小结:</h3>
+      <p>1, Docker镜像。run=&gt;容器. </p>
+<p>2, DockerFile构建镜像(服务打包)</p>
+<p>3, docker-compose启动项目(编排、多个微服务/环境)</p>
+<p>4, Docker网络</p>
+
+        <h2 id="yaml-规则"   >
+          <a href="#yaml-规则" class="heading-link"><i class="fas fa-link"></i></a>yaml 规则</h2>
+      <p>docker-compose.yaml核心</p>
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/11.png" class="" title="图片">
+
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/12.png" class="" title="图片">
+
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/13.png" class="" title="图片">
+
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/14.png" class="" title="图片">
+
+
+
+
+        <h2 id="开源项目"   >
+          <a href="#开源项目" class="heading-link"><i class="fas fa-link"></i></a>开源项目</h2>
+      
+        <h3 id="博客"   >
+          <a href="#博客" class="heading-link"><i class="fas fa-link"></i></a>博客</h3>
+      <p>下载程序、安装数据库….compose应用。=&gt;一键启动！</p>
+<p>1、下载项目(docker-compose.yaml)</p>
+<p>2、如果需要文件。Dcokerfile</p>
+<p>3、文件准备齐全(直接一键启动项目! )</p>
+<p>前台启动</p>
+<p>docker -d</p>
+<p>docker-compose up -d</p>
+<p>docker-compose up -d #后台启动</p>
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/15.png" class="" title="图片">
+
+
+        <h2 id="实战"   >
+          <a href="#实战" class="heading-link"><i class="fas fa-link"></i></a>实战</h2>
+      <p>1、编写项目微服务</p>
+<ol start="2">
+<li>dockerfile构建镜像</li>
+<li>docker-compose.yaml编排项目</li>
+<li>丢到服务器docker-compose up</li>
+</ol>
+
+        <h3 id="小结"   >
+          <a href="#小结" class="heading-link"><i class="fas fa-link"></i></a>小结:</h3>
+      <p>未来项目只要有docker-compose文件。按照这个规则,启动编排容器!</p>
+<p>公司: docker-compose,直接启动。</p>
+<p>网上开源项目: docker-compose-键搞定</p>
+<img src="/2021/10/12/Docker%E8%BF%9B%E9%98%B6/16.png" class="" title="图片">
+
+
+        <h3 id="总结"   >
+          <a href="#总结" class="heading-link"><i class="fas fa-link"></i></a>总结:</h3>
+      <p>工程、服务、容器</p>
+<p>项目compose:三层</p>
+<ul>
+<li><p>工程Porject·</p>
+</li>
+<li><p>服务 服务</p>
+</li>
+<li><p>容器运行实例! docker k8s容器.</p>
+</li>
+</ul>
+<p>Docker Compse搞定</p>
+
+        <h1 id="Docker-Swarm"   >
+          <a href="#Docker-Swarm" class="heading-link"><i class="fas fa-link"></i></a>Docker Swarm</h1>
+      <p><span class="exturl"><a class="exturl__link"   href="https://blog.csdn.net/u014073556/article/details/109624184?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163400627916780366576964%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163400627916780366576964&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-109624184.pc_search_ecpm_flag&utm_term=docker%E8%BF%9B%E9%98%B6%E7%AF%87+%E7%8B%82%E7%A5%9E%E8%AF%B4&spm=1018.2226.3001.4187"  target="_blank" rel="noopener">具体教程</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://kingsirz123.github.io">源一</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/">https://kingsirz123.github.io/2021/10/12/Docker%E8%BF%9B%E9%98%B6/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2021/10/08/Docker/"><span class="paginator-prev__text">Docker</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker进阶"><span class="toc-number">1.</span> <span class="toc-text">
+          Docker进阶</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-Compose"><span class="toc-number">2.</span> <span class="toc-text">
+          Docker Compose</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">2.1.</span> <span class="toc-text">
+          简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.2.</span> <span class="toc-text">
+          安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker小结"><span class="toc-number">2.2.1.</span> <span class="toc-text">
+          Docker小结:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yaml-规则"><span class="toc-number">2.3.</span> <span class="toc-text">
+          yaml 规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开源项目"><span class="toc-number">2.4.</span> <span class="toc-text">
+          开源项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#博客"><span class="toc-number">2.4.1.</span> <span class="toc-text">
+          博客</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战"><span class="toc-number">2.5.</span> <span class="toc-text">
+          实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-number">2.5.1.</span> <span class="toc-text">
+          小结:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.5.2.</span> <span class="toc-text">
+          总结:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-Swarm"><span class="toc-number">3.</span> <span class="toc-text">
+          Docker Swarm</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/3.jpeg" alt="avatar"></div><p class="sidebar-ov-author__text">一生中你唯一需要回头的时候，是为了看自己到底走了多远。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/KingSirZ123/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://plus.google.com/" target="_blank" rel="noopener" data-popover="Google" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-google"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://youtube.com/" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">69</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020.7.19~2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>你好世界</span></div><div><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
